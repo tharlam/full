@@ -1,0 +1,1275 @@
+/* General Body and HTML Reset */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    /* A common, clean font */
+    line-height: 1.6;
+    color: #333;
+    /* Default text color for main content */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+    /* NEW: Remove default tap highlight color for mobile */
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* NEW: Remove outline on focus/active for a cleaner look */
+a:focus,
+button:focus,
+a:active,
+button:active {
+    outline: none;
+}
+
+/* Class to prevent body scrolling when mobile menu or modal is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Global Container for Centering Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /* Default horizontal padding for content inside container */
+}
+
+/* --- Main Navigation Bar --- */
+.main-nav {
+    background-color: #001f3f;
+    /* Your chosen dark blue color */
+    color: white;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    /* Separate content to left and right */
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    /* Make it sticky */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    /* Ensure it's above other content */
+}
+
+/* Styles for the Tharlam Academy text */
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 50px;
+    /* Positions it to the left */
+    flex-shrink: 0;
+    color: white;
+    /* Ensure text is white as it's not a link */
+}
+
+/* Hamburger Menu Toggle for Mobile (Hidden by default on desktop) */
+.menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    /* Positions it to the right */
+    z-index: 1001;
+    /* NEW: Ensure no unwanted highlights on click */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+/* --- SINGLE NAVIGATION LINKS (Desktop Styles by default) --- */
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* Horizontal layout for desktop */
+    margin-right: 50px;
+    /* Positions it to the right */
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Enhanced styling for the Home link and its icon */
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    /* Only transition color now, underline handled by ::after */
+    display: flex;
+    /* Use flexbox to align icon and text */
+    align-items: center;
+    /* Vertically centers icon and text */
+    white-space: nowrap;
+    /* Prevents "Home" from wrapping */
+    position: relative;
+    /* Essential for positioning the ::after pseudo-element */
+    overflow: hidden;
+    /* Helps contain the underline animation if it slightly overshoots */
+    /* NEW: Ensure no unwanted highlights on click */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+/* Add spacing between the icon and the text */
+.nav-links li a .fas {
+    margin-right: 8px;
+    /* Space between the icon and the word "Home" */
+}
+
+/* NEW: Underline effect using ::after pseudo-element */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    /* Position at the bottom of the link */
+    left: 0;
+    width: 0;
+    /* Start with zero width (invisible) */
+    height: 2px;
+    /* Thickness of the underline */
+    background-color: white;
+    /* Color of the underline */
+    transition: width 0.3s ease-out;
+    /* Smooth transition for width change */
+}
+
+/* On hover or active, expand the underline */
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+    /* Expand to full width */
+}
+
+/* Adjust color on hover/active */
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #f8f9fa;
+    /* Slightly lighter white on hover/active */
+    /* border-bottom property removed as it's replaced by ::after */
+}
+
+/* --- Close Menu Button (Dynamically added by JS) --- */
+.close-menu {
+    display: none;
+    /* HIDDEN BY DEFAULT ON DESKTOP */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1060;
+    transition: color 0.3s ease, transform 0.2s ease;
+    /* NEW: Ensure no unwanted highlights on click */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.close-menu:hover,
+.close-menu:focus {
+    color: #001f3f;
+    transform: rotate(90deg);
+    text-decoration: none;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('bg.JPG') no-repeat center center/cover;
+    color: white;
+    text-align: left;
+    padding: 120px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-left: 100px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.hero-section h1 {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    max-width: 700px;
+}
+
+/* --- Button Primary Style (Enhanced) --- */
+.btn-primary {
+    display: inline-block;
+    background-color: #001f3f;
+    color: white;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    margin-top: 0px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* NEW: Ensure no unwanted highlights on click */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.btn-primary:hover {
+    background-color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Footer Styles --- */
+footer {
+    background-color: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 0px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* --- Common Section Styles (for consistency) --- */
+.section-tagline {
+    font-size: 14px;
+    color: #28a745;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.section-main-heading {
+    font-size: clamp(30px, 4vw, 38px);
+    font-weight: bold;
+    color: #2c3e50;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.section-sub-heading {
+    font-size: clamp(24px, 3.5vw, 28px);
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+/* --- Philosophy Section --- */
+.philosophy-section {
+    padding: 30px 0;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+/* --- Who We Are Section --- */
+.who-we-are-section {
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.who-we-are-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.who-we-are-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.who-we-are-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.who-we-are-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.who-we-are-image .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- What We Do Section --- */
+.what-we-do-section {
+    padding: 40px 0;
+    background-color: #f0f0f0;
+}
+
+.what-we-do-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.what-we-do-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.what-we-do-image .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.what-we-do-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.what-we-do-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* --- Future Updates Information Section --- */
+.future-updates-section {
+    padding: 30px;
+    background-color: #e9ecef;
+    text-align: center;
+}
+
+.future-updates-section .section-main-heading {
+    margin: 0 auto 25px auto;
+}
+
+.future-updates-section p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+}
+
+/* --- MODAL STYLES (Enhanced) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 0px;
+    animation-name: fadeIn;
+    animation-duration: 0.3s;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #ffffff;
+    margin: 5% auto;
+    padding: 30px;
+    border: none;
+    width: 85%;
+    max-width: 900px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    line-height: 1.8;
+}
+
+/* The Close Button */
+.close-button {
+    color: #555;
+    font-size: 32px;
+    font-weight: normal;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+    /* Ensure close button is above modal content */
+    transition: color 0.3s ease, transform 0.2s ease;
+    /* NEW: Ensure no unwanted highlights on click */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #001f3f;
+    transform: rotate(90deg);
+    text-decoration: none;
+}
+
+/* Styling for content within modal for readability */
+.modal-content h2 {
+    color: #001f3f;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 2.2em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.modal-content h4 {
+    color: #2c3e50;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    padding-left: 10px;
+    border-left: 4px solid #001f3f;
+}
+
+.modal-content p {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 1.05em;
+}
+
+.modal-content ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.modal-content ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+/* Keyframe Animations for Modals */
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* AOS Library integration (assuming you have AOS.js linked) */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 1s;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+[data-aos="fade-right"] {
+    transform: translateX(-100px);
+}
+
+[data-aos="fade-left"] {
+    transform: translateX(100px);
+}
+
+/*the shedule section*/
+/* --- Interactive Tabs Section --- */
+.interactive-tabs-section {
+    padding: 40px 0;
+    background-color: #f8f8f8;
+}
+
+.interactive-tabs-grid {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Left Side: Tab Navigation Buttons */
+.tabs-navigation {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 15px;
+}
+
+.tab-button {
+    background-color: transparent;
+    color: #2c3e50;
+    border: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    /* NEW: Ensure no unwanted highlights on click */
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.tab-button:last-child {
+    margin-bottom: 0;
+}
+
+.tab-button:hover {
+    background-color: #e9ecef;
+    transform: translateX(3px);
+}
+
+.tab-button.active {
+    background-color: #001f3f;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Right Side: Tab Content Panels */
+.tabs-content {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-panel {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+.tab-panel-title {
+    font-size: clamp(26px, 3.5vw, 32px);
+    color: #001f3f;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+.tab-panel-intro {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Table Wrapper for Horizontal Scroll on Small Screens (used by all tables now) */
+.schedule-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Daily Schedule Table Styling (APPLIED TO ALL TABLES IN TABS) */
+.daily-schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.daily-schedule-table th,
+.daily-schedule-table td {
+    padding: 15px 20px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.daily-schedule-table th {
+    background-color: #001f3f;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.daily-schedule-table th:last-child {
+    border-right: none;
+}
+
+.daily-schedule-table tbody tr:nth-child(even) {
+    background-color: #e6f0fa;
+}
+
+.daily-schedule-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.daily-schedule-table td:first-child {
+    font-weight: bold;
+    color: #003366;
+    width: 150px;
+    min-width: 120px;
+}
+
+/* --- Responsive Adjustments for ALL Sections --- */
+
+/* Tablet and smaller desktop (992px) */
+@media (max-width: 992px) {
+    .nav-brand {
+        margin-left: 20px;
+        /* Adjusted for smaller screens */
+    }
+
+    .nav-links {
+        margin-right: 20px;
+    }
+
+    .hero-content {
+        margin-left: 50px;
+    }
+
+    /* Who We Are Section */
+    .who-we-are-grid {
+        gap: 0px;
+    }
+
+    .who-we-are-text p {
+        font-size: 15px;
+    }
+
+    /* What We Do Section */
+    .what-we-do-text p {
+        font-size: 15px;
+    }
+
+    /* Future Updates Section */
+    .future-updates-section p {
+        font-size: 16px;
+    }
+
+    /* Modal Responsive Adjustments */
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+
+    /* Interactive Tabs Responsive Adjustments */
+    .interactive-tabs-grid {
+        gap: 30px;
+    }
+
+    .tabs-navigation {
+        flex: 0 0 200px;
+        padding: 10px;
+    }
+
+    .tab-button {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+
+    .tabs-content {
+        padding: 25px;
+        min-height: 350px;
+    }
+
+    .tab-panel-title {
+        font-size: clamp(22px, 3.5vw, 28px);
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+    }
+
+    .tab-panel-intro {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    .daily-schedule-table th,
+    .daily-schedule-table td {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+}
+
+/* Mobile Screens (768px) */
+@media (max-width: 768px) {
+    .main-nav {
+        justify-content: space-between;
+        padding: 10px 10px;
+        /* Corrected: 20px top/bottom, 20px left/right */
+    }
+
+    /* NEW: Adjust brand and menu-toggle to rely on main-nav padding */
+    .nav-brand {
+        font-size: 20px;
+        margin-left: 0;
+        /* Remove specific margin here */
+    }
+
+    .menu-toggle {
+        display: block;
+        /* Hamburger becomes visible */
+        margin-right: none;
+        /* Remove specific margin here */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background-color: #001f3f;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+        padding-top: 60px;
+        margin-right: 0;
+        align-items: flex-start;
+        z-index: 1050;
+    }
+
+    .nav-links.show {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin-left: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 15px 25px;
+        font-size: 18px;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        /* The ::after underline will still work for background-color hover here */
+    }
+
+    /* Hide ::after underline for mobile menu items if desired, as they use background-color */
+    .nav-links li a::after {
+        display: none;
+    }
+
+
+    .nav-links.show .close-menu {
+        display: block;
+    }
+
+    .hero-section {
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 20px;
+    }
+
+    footer {
+        margin-top: 40px;
+    }
+
+    /* Philosophy Section */
+    .philosophy-section {
+        padding: 10px 0;
+    }
+
+    .philosophy-section .section-main-heading {
+        padding: 0 20px;
+    }
+
+    /* Who We Are Section */
+    .who-we-are-section {
+        padding: 10px 0;
+    }
+
+    .who-we-are-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .who-we-are-text,
+    .who-we-are-image {
+        min-width: unset;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .who-we-are-text {
+        text-align: left;
+    }
+
+    .who-we-are-text .section-sub-heading,
+    .who-we-are-text .section-tagline,
+    .who-we-are-text p {
+        text-align: left;
+    }
+
+    .who-we-are-image {
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .who-we-are-text {
+        order: 2;
+    }
+
+    /* What We Do Section */
+    .what-we-do-section {
+        padding: 40px 0;
+    }
+
+    .what-we-do-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .what-we-do-text,
+    .what-we-do-image {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .what-we-do-image {
+        order: 1;
+        margin-bottom: 10px;
+    }
+
+    .what-we-do-text {
+        order: 2;
+        text-align: left;
+    }
+
+    .what-we-do-text .section-sub-heading,
+    .what-we-do-text p {
+        text-align: left;
+    }
+
+    /* Future Updates Section */
+    .future-updates-section {
+        padding: 40px 0;
+    }
+
+    .future-updates-section .section-main-heading {
+        padding: 0 20px;
+    }
+
+    .future-updates-section p {
+        font-size: 16px;
+        padding: 0 20px;
+    }
+
+    /* Modal Responsive Adjustments */
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.8em;
+    }
+
+    .modal-content h4 {
+        font-size: 1.1em;
+    }
+
+    .modal-content p,
+    .modal-content ul li {
+        font-size: 0.95em;
+        line-height: 1.7;
+    }
+
+    /* Interactive Tabs Responsive Adjustments */
+    .interactive-tabs-grid {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .tabs-navigation {
+        flex: unset;
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-button {
+        flex-shrink: 0;
+        min-width: 120px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .tab-button:last-child {
+        margin-right: 0;
+    }
+
+    .tabs-content {
+        width: 100%;
+        padding: 20px;
+        min-height: 300px;
+        box-sizing: border-box;
+    }
+
+    .daily-schedule-table {
+        max-width: unset;
+    }
+}
+
+/* Very Small Mobile Screens (480px) */
+@media (max-width: 480px) {
+    .nav-brand {
+        font-size: 18px;
+        /* Smaller font for brand */
+        /* margin-left: 0, relies on parent padding */
+    }
+
+    .nav-links {
+        width: 85%;
+        max-width: 250px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .close-menu {
+        font-size: 24px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(28px, 6vw, 36px);
+    }
+
+    .hero-section p {
+        font-size: clamp(15px, 3vw, 18px);
+    }
+
+    /* Section Headings Adjustments */
+    .section-main-heading {
+        font-size: clamp(24px, 5vw, 30px);
+        margin-bottom: 30px;
+        padding: 0 15px;
+    }
+
+    .section-sub-heading {
+        font-size: clamp(20px, 4.5vw, 24px);
+    }
+
+    .section-tagline {
+        font-size: 13px;
+    }
+
+    /* Section Content Padding */
+    .container {
+        padding: 0 15px;
+    }
+
+    .who-we-are-text,
+    .who-we-are-image,
+    .what-we-do-text,
+    .what-we-do-image {
+        padding: 0;
+    }
+
+    .who-we-are-text p,
+    .what-we-do-text p {
+        font-size: 15px;
+    }
+
+    /* Future Updates Section */
+    .future-updates-section p {
+        font-size: 15px;
+        padding: 0 15px;
+    }
+
+    /* Modal Responsive Adjustments */
+    .modal-content {
+        margin: 2% auto;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+
+    .modal-content h4 {
+        font-size: 0.9em;
+        margin-top: 15px;
+    }
+
+    .modal-content p,
+    .modal-content ul li {
+        font-size: 0.8em;
+        line-height: 1.6;
+    }
+
+    /* Interactive Tabs Responsive Adjustments */
+    .interactive-tabs-section {
+        padding: 0px 0;
+    }
+
+    .interactive-tabs-grid {
+        padding: 0 15px;
+    }
+
+    .tab-button {
+        font-size: 15px;
+        padding: 10px 12px;
+        min-width: 100px;
+    }
+
+    .tabs-content {
+        padding: 10px;
+        min-height: 250px;
+    }
+
+    .tab-panel-title {
+        font-size: clamp(20px, 4.5vw, 26px);
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .tab-panel-intro {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+
+    .daily-schedule-table td:first-child {
+        width: 100px;
+        min-width: 90px;
+    }
+}
+
+/*the section of history*/
+/* --- Our History Section --- */
+.our-history-section {
+    padding: 30px 0;
+    background-color: #fcfcfc; /* Light background to differentiate */
+    text-align: center; /* Center section headings */
+}
+
+/* Common styles for the history rows (Monastery and Academy) */
+.history-row {
+    display: flex;
+    flex-wrap: wrap; /* Allows text and image to stack on smaller screens */
+    gap: 60px; /* Space between text and image */
+    align-items: center; /* Vertically align items in the middle */
+    justify-content: center; /* Center items horizontally when wrapped */
+    margin-top: 60px; /* Space between the main heading and the first row, and between the two rows */
+}
+
+.history-row:first-of-type {
+    margin-top: 50px; /* Adjust top margin for the first row specifically */
+}
+
+/* Styles for the text content within each history row */
+.history-text {
+    flex: 1; /* Allows text to grow and shrink */
+    min-width: 300px; /* Minimum width before wrapping */
+    max-width: 600px; /* Maximum width for the text block on larger screens */
+    text-align: left; /* Align text content to the left */
+}
+
+/* Styles for the image content within each history row */
+.history-image {
+    flex: 1; /* Allows image to grow and shrink */
+    min-width: 300px; /* Minimum width before wrapping */
+    text-align: center; /* Center the image within its flex item */
+}
+
+/* Ensure images are responsive and styled */
+.history-image .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the subheadings within the history text blocks */
+.history-sub-heading {
+    font-size: clamp(20px, 2.5vw, 26px);
+    color: #001f3f; /* Dark blue from your nav */
+    margin-top: 0;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px; /* Space for the underline */
+}
+
+/* Small underline for subheadings */
+.history-sub-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px; /* Length of the underline */
+    height: 3px; /* Thickness of the underline */
+    background-color: #001f3f; /* Your green accent color */
+    border-radius: 2px;
+}
+
+/* Paragraph text within the history section */
+.history-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+
+/* --- Responsive Adjustments for History Section --- */
+@media (max-width: 992px) {
+    .history-row {
+        gap: 40px;
+        margin-top: 50px;
+    }
+    .history-text {
+        max-width: 500px; /* Slightly reduce max-width for text on tablets */
+    }
+    .history-sub-heading {
+        font-size: clamp(18px, 2.5vw, 22px);
+    }
+}
+
+@media (max-width: 768px) {
+    .our-history-section {
+        padding: 30px 0;
+    }
+    .history-row {
+        flex-direction: column; /* Stack text and image vertically on smaller mobile */
+        gap: 30px;
+        margin-top: 40px;
+    }
+    .history-text,
+    .history-image {
+        min-width: unset; /* Remove min-width to allow full stacking */
+        max-width: 90%; /* Allow content to take more width on small screens */
+        margin: 0 auto; /* Center content blocks when stacked */
+        padding: 0 15px; /* Add some horizontal padding for text/image blocks */
+    }
+    .history-sub-heading {
+        text-align: center; /* Center subheading when stacked */
+    }
+    .history-sub-heading::after {
+        left: 50%; /* Center the underline */
+        transform: translateX(-50%); /* Adjust for perfect centering */
+    }
+    .history-text p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .history-row {
+        gap: 25px;
+        margin-top: 30px;
+    }
+    .history-text,
+    .history-image {
+        max-width: 100%; /* Take full width on very small screens */
+        padding: 0 10px;
+    }
+}

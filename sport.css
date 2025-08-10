@@ -1,0 +1,896 @@
+/* General Body and HTML Reset */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    background-color: #f0f2f5;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove outline on focus/active for a cleaner look */
+a:focus,
+button:focus,
+a:active,
+button:active {
+    outline: none;
+}
+
+/* Class to prevent body scrolling when mobile menu or modal is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Global Container for Centering Content */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- CSS Variables (Custom Properties) --- */
+:root {
+    --color-bg-light-grey: #f8f8f8;
+    --color-bg-dark-overlay: rgba(0, 0, 0, 0.6);
+    --color-text-white: #ffffff;
+    --color-primary-green: #28a745;
+    --color-dark-blue: #001f3f;
+    --spacing-xxl: 30px;
+    --spacing-xl: 20px;
+    --spacing-l: 15px;
+    --spacing-m: 10px;
+    --spacing-s: 8px;
+    --spacing-xs: 5px;
+}
+
+
+/* --- Main Navigation Bar --- */
+.main-nav {
+    background-color: var(--color-dark-blue);
+    color: var(--color-text-white);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 50px;
+    flex-shrink: 0;
+    color: var(--color-text-white);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 50px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-links li a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.nav-links li a .fas {
+    margin-right: 8px;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-text-white);
+    transition: width 0.3s ease-out;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #f8f9fa;
+}
+
+.close-menu {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1060;
+    transition: color 0.3s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.close-menu:hover,
+.close-menu:focus {
+    color: var(--color-dark-blue);
+    transform: rotate(90deg);
+    text-decoration: none;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('cupp.png') no-repeat center center/cover;
+    color: var(--color-text-white);
+    text-align: left;
+    padding: 160px 160px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-left: 100px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.hero-section h1 {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+    font-size: clamp(16px, 2.5vw, 20px);
+    max-width: 800px;
+}
+
+
+/* --- Sports Main Overview Section --- */
+.sports-main-overview-section {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 0;
+}
+
+.sports-main-overview-section .sports-main-heading {
+    font-size: clamp(40px, 5vw, 56px);
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: left;
+    margin-bottom: 0px;
+    max-width: 100%;
+}
+
+.sports-text-columns-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 0;
+}
+
+.sports-text-column p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* --- Individual House Sections --- */
+.house-section {
+    padding: 10px 0;
+    background-color: #fff;
+    color: #333;
+}
+
+.house-section:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+/* Specific House Color Accents */
+.white-house-section {
+    background-color: #fefefe;
+}
+
+.red-house-section {
+    background-color: #fff0f0;
+}
+
+.blue-house-section {
+    background-color: #f0f8ff;
+}
+
+.yellow-house-section {
+    background-color: #fffacd;
+}
+
+.house-heading {
+    font-size: clamp(32px, 4.5vw, 42px);
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 50px;
+    line-height: 1.2;
+}
+
+.house-content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* On desktop, this reverses the order for some sections */
+.house-content-grid.reverse-order-on-mobile {
+    flex-direction: row-reverse;
+}
+
+.house-text {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    text-align: left;
+}
+
+.house-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.house-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.house-image .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Future Information Section --- */
+.sports-future-info-section {
+    padding: 80px 0;
+    background-color: #e9ecef;
+    text-align: center;
+}
+
+.sports-future-info-section .section-main-heading {
+    margin: 0 auto 25px auto;
+}
+
+.sports-future-info-section p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    text-align: center;
+}
+
+/* --- Call to Action for Gallery Section --- */
+.gallery-cta-section {
+    padding: 80px 0;
+    background-color: var(--color-dark-blue);
+    color: white;
+    text-align: center;
+}
+
+.gallery-cta-section .section-main-heading {
+    color: white;
+    margin-bottom: 25px;
+}
+
+.gallery-cta-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Styles for the button container in gallery CTA section */
+.cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Base style for all buttons within this section */
+.gallery-cta-section .btn {
+    display: inline-block;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: var(--color-primary-green);
+    border: 2px solid var(--color-primary-green);
+    min-width: 180px;
+    max-width: 280px;
+    box-sizing: border-box;
+}
+
+.gallery-cta-section .btn:hover {
+    background-color: #218838;
+    border-color: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific style for the Instagram button in gallery CTA section */
+.instagram-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    max-width: 200px;
+    box-sizing: border-box;
+}
+
+/* Style for the container around the Instagram icon to give it a background */
+.instagram-icon-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    margin-right: 10px;
+}
+
+/* Style for the Font Awesome icon inside its colored background */
+.instagram-icon-bg i {
+    font-size: 1.2em;
+    color: white;
+    line-height: 1;
+}
+
+/* --- Footer Styles --- */
+footer {
+    background-color: var(--color-dark-blue);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 0px;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* --- Responsive Adjustments for ALL Sections --- */
+
+/* Tablet and smaller desktop (992px) */
+@media (max-width: 992px) {
+    .nav-brand {
+        margin-left: 20px;
+    }
+
+    .nav-links {
+        margin-right: 20px;
+    }
+
+    .hero-content {
+        margin-left: 50px;
+        text-align: left;
+    }
+
+    /* Sports Overview Section */
+    .sports-main-overview-section {
+        padding: 60px 0;
+    }
+
+    .sports-main-overview-section .sports-main-heading {
+        font-size: clamp(34px, 5vw, 48px);
+        margin-bottom: 30px;
+        text-align: left;
+    }
+
+    .sports-text-columns-grid {
+        gap: 30px;
+    }
+
+    .sports-text-column p {
+        text-align: left;
+    }
+
+    /* House Sections */
+    .house-section {
+        padding: 60px 0;
+    }
+
+    .house-heading {
+        font-size: clamp(28px, 4.5vw, 38px);
+        margin-bottom: 40px;
+        text-align: left;
+    }
+
+    .house-content-grid {
+        flex-direction: column-reverse; /* Images before text on smaller screens */
+        gap: 40px;
+        align-items: flex-start;
+    }
+
+    /* This rule is now redundant for its original purpose here as column-reverse handles all.
+       But keep it if you ever want to specifically target or if there are other desktop-only reversals. */
+    .house-content-grid.reverse-order-on-mobile {
+        flex-direction: column-reverse;
+    }
+
+    .house-text {
+        text-align: left;
+    }
+
+    .house-text p {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .house-image {
+        text-align: left;
+    }
+
+    /* Future Info Section */
+    .sports-future-info-section {
+        padding: 60px 0;
+    }
+
+    .sports-future-info-section .section-main-heading {
+        font-size: clamp(28px, 4vw, 38px);
+        text-align: center;
+    }
+
+    .sports-future-info-section p {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* Gallery CTA Section */
+    .gallery-cta-section {
+        padding: 60px 0;
+    }
+
+    .gallery-cta-section .section-main-heading {
+        font-size: clamp(28px, 4vw, 38px);
+        text-align: center;
+    }
+
+    .gallery-cta-section p {
+        font-size: 16px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .gallery-cta-section .btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+/* Mobile Screens (768px) */
+@media (max-width: 768px) {
+    .main-nav {
+        justify-content: space-between;
+        padding: 10px 10px;
+    }
+
+    .nav-brand {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-right: none;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background-color: var(--color-dark-blue);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+        padding-top: 60px;
+        margin-right: 0;
+        align-items: flex-start;
+        z-index: 1050;
+    }
+
+    .nav-links.show {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin-left: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 15px 25px;
+        font-size: 18px;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links li a::after {
+        display: none;
+    }
+
+    .nav-links.show .close-menu {
+        display: block;
+    }
+
+    .hero-section {
+        padding: 80px 0;
+        text-align: left;
+    }
+
+    .hero-content {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 0;
+    }
+
+    footer {
+        margin-top: 40px;
+    }
+
+    /* Sports Overview Section */
+    .sports-main-overview-section {
+        padding: 40px 0;
+    }
+
+    .sports-main-overview-section .sports-main-heading {
+        text-align: left;
+        font-size: clamp(30px, 6vw, 40px);
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+
+    .sports-text-columns-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .sports-text-column p {
+        font-size: 15px;
+        text-align: left;
+    }
+
+    /* House Sections */
+    .house-section {
+        padding: 40px 0;
+    }
+
+    .house-heading {
+        font-size: clamp(26px, 6vw, 36px);
+        margin-bottom: 30px;
+        padding: 0 20px;
+        text-align: left;
+    }
+
+    .house-content-grid {
+        flex-direction: column-reverse; /* Images before text on smaller screens */
+        gap: 30px;
+        padding: 0 20px;
+        align-items: flex-start;
+    }
+
+    /* This rule is now redundant for its original purpose here as column-reverse handles all. */
+    .house-content-grid.reverse-order-on-mobile {
+        flex-direction: column-reverse;
+    }
+
+    .house-text,
+    .house-image {
+        min-width: unset;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        text-align: left;
+    }
+
+    .house-text p {
+        font-size: 15px;
+        text-align: left;
+    }
+
+    /* Future Info Section */
+    .sports-future-info-section {
+        padding: 40px 0;
+    }
+
+    .sports-future-info-section .section-main-heading {
+        font-size: clamp(28px, 4vw, 38px);
+        text-align: center;
+    }
+
+    .sports-future-info-section p {
+        font-size: 16px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    /* Gallery CTA Section */
+    .gallery-cta-section {
+        padding: 40px 0;
+    }
+
+    .gallery-cta-section .section-main-heading {
+        font-size: clamp(28px, 4vw, 38px);
+        text-align: center;
+    }
+
+    .gallery-cta-section p {
+        font-size: 16px;
+        margin-bottom: 20px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .cta-buttons {
+        gap: 15px;
+    }
+
+    .gallery-cta-section .btn {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .instagram-btn {
+        padding: 8px 10px;
+    }
+
+    .instagram-icon-bg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .instagram-icon-bg i {
+        font-size: 1.1em;
+    }
+}
+
+/* Very Small Mobile Screens (480px) */
+@media (max-width: 480px) {
+    .nav-brand {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        width: 85%;
+        max-width: 250px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .close-menu {
+        font-size: 24px;
+    }
+
+    .hero-section {
+        padding: 60px 0;
+        text-align: left;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(20px, 2vw, 36px);
+    }
+
+    .hero-section p {
+        font-size: clamp(15px, 3vw, 18px);
+    }
+
+    .container {
+        padding: 0px;
+    }
+
+    /* Sports Overview Section */
+    .sports-main-overview-section {
+        padding: 30px 0;
+    }
+
+    .sports-main-overview-section .sports-main-heading {
+        font-size: clamp(26px, 7vw, 34px);
+        margin-bottom: 15px;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .sports-text-columns-grid {
+        padding: 0 15px;
+    }
+
+    .sports-text-column p {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    /* House Sections */
+    .house-section {
+        padding: 10px 0;
+    }
+
+    .house-heading {
+        font-size: clamp(20px, 5vw, 28px); /* Adjusted to be smaller */
+        margin-bottom: 20px;
+        padding: 0 15px;
+        text-align: center; /* Keeping text-align left as per previous requests */
+    }
+
+    .house-content-grid {
+        padding: 0 15px;
+        align-items: flex-start;
+        flex-direction: column-reverse; /* Images before text on smaller screens */
+    }
+
+    /* Ensure images appear after text on small screens, regardless of desktop reverse */
+    .house-content-grid.reverse-order-on-mobile {
+        flex-direction: column-reverse;
+    }
+
+    .house-text p {
+        font-size: 14px;
+        text-align: left;
+    }
+
+    /* Future Info Section */
+    .sports-future-info-section {
+        padding: 30px 0;
+    }
+
+    .sports-future-info-section .section-main-heading {
+        font-size: clamp(24px, 7vw, 32px);
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .sports-future-info-section p {
+        font-size: 14px;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    /* Gallery CTA Section */
+    .gallery-cta-section {
+        padding: 30px 0;
+    }
+
+    .gallery-cta-section .section-main-heading {
+        font-size: clamp(24px, 7vw, 32px);
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .gallery-cta-section p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .cta-buttons {
+        justify-content: center; /* Center buttons horizontally */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gallery-cta-section .btn {
+        width: auto; /* Allow content to dictate width */
+        min-width: unset; /* Remove min-width to allow shrinking */
+        padding: 12px 15px; /* Adjust padding for smaller buttons */
+        font-size: 14px; /* Slightly smaller font for tighter fit */
+        flex-shrink: 0; /* Prevent shrinking too much */
+    }
+
+    .instagram-btn {
+        width: auto;
+        max-width: unset; /* Allow it to shrink/grow as needed */
+        padding: 8px 10px; /* Adjust padding */
+        font-size: 14px; /* Match gallery button font size */
+    }
+
+    .instagram-icon-bg {
+        width: 25px;
+        height: 25px;
+    }
+
+    .instagram-icon-bg i {
+        font-size: 1em; /* Slightly smaller icon */
+    }
+}

@@ -1,0 +1,354 @@
+/* --- Bank Transfer Information Section Styling --- */
+.bank-transfer-info-section {
+    padding: 60px 20px; /* Adjust padding as needed */
+    background-color: #f9f9f9; /* Light background to differentiate */
+    text-align: center;
+}
+
+.bank-transfer-info-section .section-header {
+    margin-bottom: 40px;
+}
+
+.bank-transfer-info-section .section-title {
+    font-size: 2.5em; /* Example: adjust font size */
+    color: #001f3f;
+    margin-bottom: 10px;
+}
+
+.bank-transfer-info-section .section-subtitle {
+    font-size: 1.1em;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.bank-transfer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    max-width: 1200px;
+    margin: 40px auto 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures rounded corners apply correctly */
+}
+
+.bank-buttons-panel {
+    flex: 0 0 250px; /* Fixed width for the buttons panel */
+    background-color: white; /* Light blue background for buttons */
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+}
+
+.bank-tab-button {
+    background-color: transparent;
+    border: none;
+    padding: 18px 25px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #001f3f;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-left: 5px solid transparent; /* For active indicator */
+}
+
+.bank-tab-button:hover {
+    background-color: white;
+
+}
+
+.bank-tab-button.active {
+    background-color: #001f3f;
+    color: #fff;
+    border-left-color: #001f3f; /* Highlight active button */
+}
+
+.bank-details-panel {
+    flex: 1; /* Takes up remaining space */
+    padding: 30px;
+    text-align: left;
+}
+
+.bank-details-content {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.bank-details-content.active {
+    display: block; /* Shown when active */
+}
+
+.bank-details-content h3 {
+    font-size: 1.8em;
+    color: #001f3f;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.bank-details-content ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.bank-details-content ul li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #444;
+    display: flex; /* Always use flexbox */
+    flex-wrap: wrap; /* Allow wrapping of entire line if needed */
+    align-items: baseline; /* Align text baselines */
+    gap: 8px; /* Space between items */
+}
+
+.bank-details-content ul li strong {
+    flex-shrink: 0; /* Prevent the label from shrinking */
+    margin-right: 5px; /* Add a little space after the strong tag */
+}
+
+.copy-group {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between copy target, button, and message */
+    flex-wrap: wrap; /* Allow the copy elements to wrap as a group if needed */
+}
+
+.copy-target {
+    font-family: monospace; /* Monospace font for numbers/codes */
+    font-size: 1.05em; /* Slightly larger for readability */
+    color: #001f3f; /* Highlight the number */
+    font-weight: bold;
+    user-select: all; /* Allow easy selection */
+}
+
+.copy-button {
+    background: none;
+    border: 1px solid #ccc;
+    color: #001f3f;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    display: inline-flex; /* Use flex for icon alignment */
+    align-items: center;
+    justify-content: center;
+    height: 32px; /* Fixed height for consistency */
+    box-sizing: border-box; /* Include padding/border in height */
+}
+
+.copy-button i {
+    font-size: 1em; /* Adjust icon size relative to button */
+}
+
+.copy-button:hover {
+    background-color: black;
+    color: white;
+    border-color: black;
+}
+
+.copy-button:active {
+    transform: translateY(1px);
+}
+
+.copy-message {
+    background-color: #1c3652; /* Green background for success */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.85em;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Hidden from screen readers when not visible */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    white-space: nowrap; /* Keep "Copied!" on one line */
+}
+
+.copy-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.bank-details-content .note {
+    font-size: 0.95em;
+    color: #777;
+    font-style: italic;
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed #e0e0e0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Responsive Adjustments for Bank Transfer Section --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .bank-transfer-container {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        margin: 20px auto;
+    }
+
+    .bank-buttons-panel {
+        flex: none; /* Remove fixed width */
+        width: 100%; /* Take full width */
+        flex-direction: row; /* Buttons side-by-side */
+        justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px 0;
+    }
+
+    .bank-tab-button {
+        flex: 1; /* Distribute space evenly */
+        text-align: center;
+        border-left: none;
+        border-bottom: 5px solid transparent; /* Indicator moves to bottom */
+    }
+
+    .bank-tab-button.active {
+        border-left-color: transparent; /* Reset left border */
+        border-bottom-color: #001f3f; /* New active indicator */
+    }
+
+    .bank-details-panel {
+        padding: 20px;
+    }
+
+    .bank-transfer-info-section .section-title {
+        font-size: 2em;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .bank-transfer-info-section {
+        padding: 40px 15px;
+    }
+
+    .bank-transfer-info-section .section-title {
+        font-size: 1.8em;
+    }
+
+    .bank-transfer-info-section .section-subtitle,
+    .bank-details-content p,
+    .bank-details-content ul li {
+        font-size: 1em;
+    }
+
+    .bank-tab-button {
+        font-size: 0.95em;
+        padding: 12px 15px;
+    }
+
+    .bank-details-content h3 {
+        font-size: 1.5em;
+    }
+
+    .bank-details-panel {
+        padding: 15px;
+    }
+
+    /* --- Responsive adjustments for copy feature on smaller screens --- */
+    .bank-details-content ul li {
+        /* Keep as flex row for default */
+        flex-direction: row;
+        align-items: baseline; /* Align by text baseline */
+        flex-wrap: wrap; /* Allow the entire line to wrap if it gets too long */
+        gap: 5px; /* Reduce gap */
+    }
+
+    .bank-details-content ul li strong {
+        /* Allow strong tag to wrap or take full width if content is too long */
+        flex-shrink: 0;
+        margin-right: 0; /* Adjust spacing */
+        min-width: 60px; /* Give it a minimum width if it's a short label */
+    }
+
+    .copy-group {
+        flex: 1 1 auto; /* Allow the copy group to grow and shrink */
+        justify-content: flex-start; /* Align contents to start */
+        gap: 5px; /* Reduce gap within the copy group */
+    }
+
+    .copy-target {
+        font-size: 1em;
+        /* Prevent line breaks within the target text, if possible */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; /* Add ellipsis if it overflows */
+        flex-shrink: 1; /* Allow it to shrink */
+    }
+
+    .copy-button {
+        padding: 5px 8px;
+        font-size: 0.8em;
+        height: 28px;
+        flex-shrink: 0; /* Prevent button from shrinking */
+    }
+
+    .copy-message {
+        margin-left: 0; /* Adjust margin */
+        flex-shrink: 0;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .bank-transfer-info-section {
+        padding: 30px 10px;
+    }
+
+    .bank-transfer-info-section .section-title {
+        font-size: 1.5em;
+    }
+
+    .bank-transfer-info-section .section-subtitle {
+        font-size: 0.9em;
+    }
+
+    .bank-tab-button {
+        font-size: 0.9em;
+        padding: 10px 10px;
+    }
+
+    .bank-details-content h3 {
+        font-size: 1.2em;
+    }
+
+    .bank-details-content ul li {
+        font-size: 0.9em;
+        /* Revert to column for extremely small screens if necessary */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    .bank-details-content ul li strong {
+        width: 100%; /* Make label take full width */
+        margin-bottom: 2px; /* Small space below label */
+    }
+    .copy-group {
+        width: 100%; /* Take full width */
+        justify-content: flex-start;
+    }
+    .copy-button {
+        /* Adjust button size for tiny screens */
+        padding: 4px 6px;
+        height: 25px;
+        font-size: 0.75em;
+    }
+}

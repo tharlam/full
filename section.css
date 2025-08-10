@@ -1,0 +1,1280 @@
+/*about section*/
+/* --- General Container for Centering Content --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- About Us Section Styles --- */
+.about-us-section {
+    padding: 80px 0;
+    background-color: #fff;
+}
+
+.section-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #001f3f; /* Changed from #333 to #001f3f */
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title .highlight-blue {
+    color: #001f3f; /* This already was #001f3f, no change needed here */
+}
+
+.about-content-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.about-text p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.about-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.about-image .responsive-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* --- Call to Action Button Styles (MODIFIED) --- */
+.about-cta {
+    margin-top: 0px; /* Space above the button */
+    text-align: left; /* Aligns content inside about-cta to the left */
+    /* Remove any data-aos attributes from the HTML element for this */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    /* Remove any AOS-related styles if they were applied directly here */
+}
+
+.primary-btn {
+    background-color: #001f3f; /* Changed from #007bff to #001f3f */
+    color: white;              /* Remains white */
+    border: 2px solid #001f3f; /* Changed from #007bff to #001f3f */
+}
+
+.primary-btn:hover {
+    background-color: black;   /* Changed from #0056b3 to black */
+    border-color: black;       /* Changed from #0056b3 to black */
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 32px;
+    }
+    .about-content-grid {
+        gap: 30px;
+    }
+    .about-text, .about-image {
+        min-width: unset;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-us-section {
+        padding: 30px 0;
+    }
+    .about-content-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-text {
+        order: 2;
+    }
+    .about-image {
+        order: 1;
+        margin-bottom: 20px;
+    }
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .about-text p {
+        font-size: 16px;
+    }
+    .btn {
+        padding: 10px 25px;
+        font-size: 15px;
+    }
+    .about-cta {
+        text-align: left; /* On smaller screens, centering might look better for the button */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+    }
+    .about-text p {
+        font-size: 15px;
+    }
+}
+
+/*mission and vision*/
+/* --- Mission & Vision At A Glance Section --- */
+.glance-section {
+    position: relative;
+    padding: 40px 20px;
+    color: white;
+    overflow: hidden;
+    /* Corrected image path with quotes for spaces */
+    background: url('bg wall.jpg') no-repeat center center/cover fixed;
+    text-align: center;
+}
+
+.glance-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 31, 63, 0.7);
+    /* Dark blue overlay (001f3f with 70% opacity) */
+    z-index: 1;
+    /* Sits above background, below content */
+}
+
+.glance-content-wrapper {
+    position: relative;
+    z-index: 2;
+    /* Sits above the overlay */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.glance-title {
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 50px;
+    /* Space below title before cards */
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+.glance-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 100px;
+    /* Length of the underline */
+    height: 4px;
+    background-color: white;
+    /* Yellow accent color */
+    border-radius: 2px;
+}
+
+.glance-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows cards to wrap on smaller screens */
+    justify-content: center;
+    /* Centers cards in the container */
+    gap: 30px;
+    /* Space between cards */
+}
+
+.glance-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Slightly transparent white card */
+    color: #333;
+    /* Dark text on white card */
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    /* Subtle shadow for depth */
+    text-align: center;
+    flex: 1 1 calc(25% - 30px);
+    /* Four columns on large screens */
+    min-width: 220px;
+    /* Minimum width before stacking */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glance-card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    /* More pronounced shadow on hover */
+}
+
+.glance-icon {
+    font-size: 3rem;
+    /* Size of the icon */
+    color: #001f3f;
+    /* Primary blue for icons */
+    margin-bottom: 15px;
+}
+
+.glance-card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #001f3f;
+    /* Dark blue for card titles */
+}
+
+.glance-card-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+
+/* --- Responsive Adjustments for Mission & Vision Section --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .glance-section {
+        padding: 60px 15px;
+    }
+
+    .glance-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .glance-title::after {
+        width: 80px;
+        height: 3px;
+    }
+
+    .glance-card {
+        flex: 1 1 calc(50% - 20px);
+        /* Two columns on tablets */
+        padding: 25px 15px;
+        min-width: 200px;
+    }
+
+    .glance-icon {
+        font-size: 2.5rem;
+    }
+
+    .glance-card-title {
+        font-size: 1.2rem;
+    }
+
+    .glance-card-description {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .glance-section {
+        height: auto;
+        /* Allow height to adjust to content */
+        padding: 50px 10px;
+        /* The line 'background-attachment: scroll;' has been REMOVED from here */
+    }
+
+    .glance-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .glance-title::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    .glance-cards-container {
+        gap: 20px;
+        /* Reduced gap */
+    }
+
+    .glance-card {
+        flex: 1 1 100%;
+        /* Single column on mobile, ensures it adapts to full width */
+        margin: 0 auto;
+        /* Center individual cards */
+        padding: 20px 15px;
+    }
+
+    .glance-icon {
+        font-size: 2rem;
+    }
+
+    .glance-card-title {
+        font-size: 1.1rem;
+    }
+
+    .glance-card-description {
+        font-size: 0.85rem;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .glance-section {
+        padding: 40px 10px;
+    }
+
+    .glance-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .glance-cards-container {
+        gap: 15px;
+    }
+
+    .glance-card {
+        padding: 18px 10px;
+    }
+
+    .glance-icon {
+        font-size: 1.8rem;
+    }
+
+    .glance-card-title {
+        font-size: 1rem;
+    }
+
+    .glance-card-description {
+        font-size: 0.8rem;
+    }
+}
+
+/*princpal section*/
+/* --- Principal's Message Section --- */
+.principal-section {
+    padding: 40px 20px;
+    /* Ample padding */
+    background-color: #F8F8F8;
+    /* Changed to light white background */
+    color: #333;
+    /* Changed to dark text color for contrast */
+    overflow: hidden;
+    text-align: center;
+    /* Default center alignment for content */
+}
+
+.principal-container {
+    max-width: 1000px;
+    /* Max width for the content block */
+    margin: 0 auto;
+    /* Center the container */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows image and text to stack on smaller screens */
+    align-items: center;
+    /* Vertically center items */
+    justify-content: center;
+    /* Center content horizontally */
+    gap: 40px;
+    /* Space between image and text */
+    padding: 20px;
+    /* Inner padding for the container */
+}
+
+.principal-image {
+    flex-shrink: 0;
+    /* Prevent image from shrinking */
+    width: 300px;
+    /* Fixed width for the image container */
+    height: 300px;
+    /* Fixed height for the image container */
+    border-radius: 50%;
+    /* Makes the container circular */
+    overflow: hidden;
+    /* Hides parts of the image outside the circle */
+    border: 3px solid #001f3f;
+    /* Changed border to primary blue */
+    box-shadow: 0 0 0 5px rgba(0, 123, 255, 0.1);
+    /* Subtle blue glow effect */
+    display: flex;
+    /* Use flex to center the image within the circle */
+    justify-content: center;
+    align-items: center;
+}
+
+.principal-image img {
+    width: 100%;
+    /* Image fills the circular container */
+    height: 100%;
+    object-fit: cover;
+    /* Ensures the image covers the circle without distortion */
+    display: block;
+}
+
+.principal-content {
+    flex: 1 1 100px;
+    /* Flexible width for the text content */
+    max-width: 750px;
+    /* Max width for readability */
+    text-align: left;
+    /* Text content is left-aligned */
+}
+
+.principal-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #001f3f;
+    /* Changed name color to dark blue */
+    margin-bottom: 5px;
+}
+
+.principal-title {
+    font-size: 1rem;
+    color: #777;
+    /* Darker grey for the title */
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.principal-quote {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #444;
+    /* Darker grey for the quote text */
+    margin: 0;
+    /* Remove default blockquote margins */
+    padding: 0;
+    font-style: italic;
+    /* Italicize the quote */
+    position: relative;
+}
+
+/* Optional: Add quote marks if desired, similar to the screenshot's implied style */
+.principal-quote::before {
+    content: '“';
+    /* Left quote mark */
+    font-size: 4em;
+    /* Large quote mark */
+    color: rgba(0, 123, 255, 0.1);
+    /* Translucent blue */
+    position: absolute;
+    left: -20px;
+    /* Adjust position */
+    top: -20px;
+    /* Adjust position */
+    line-height: 1;
+    z-index: 0;
+}
+
+.principal-quote::after {
+    content: '”';
+    /* Right quote mark */
+    font-size: 4em;
+    color: rgba(0, 123, 255, 0.1);
+    /* Translucent blue */
+    position: absolute;
+    right: -20px;
+    /* Adjust position */
+    bottom: -20px;
+    /* Adjust position */
+    line-height: 1;
+    z-index: 0;
+}
+
+
+/* --- Responsive Adjustments for Principal's Message Section --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .principal-section {
+        padding: 60px 15px;
+    }
+
+    .principal-container {
+        flex-direction: column;
+        /* Stack image and text vertically */
+        gap: 30px;
+        max-width: 700px;
+        /* Constrain width when stacked */
+    }
+
+    .principal-image {
+        width: 120px;
+        height: 120px;
+        border-width: 2px;
+        box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.08);
+        /* Lighter blue glow */
+    }
+
+    .principal-content {
+        text-align: left;
+        /* Center text when stacked */
+        max-width: 100%;
+        /* Allow full width of container */
+    }
+
+    .principal-name {
+        font-size: 1.3rem;
+    }
+
+    .principal-title {
+        font-size: 0.9rem;
+    }
+
+    .principal-quote {
+        font-size: 1rem;
+    }
+
+    .principal-quote::before,
+    .principal-quote::after {
+        font-size: 3em;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -10px;
+    }
+
+    .principal-quote::after {
+        bottom: auto;
+        top: auto;
+        margin-top: 10px;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .principal-section {
+        padding: 40px 10px;
+    }
+
+    .principal-container {
+        gap: 25px;
+        padding: 15px;
+    }
+
+    .principal-image {
+        width: 100px;
+        height: 100px;
+        border-width: 2px;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.05);
+    }
+
+    .principal-name {
+        font-size: 1.1rem;
+    }
+
+    .principal-title {
+        font-size: 0.8rem;
+    }
+
+    .principal-quote {
+        font-size: 0.9rem;
+    }
+
+    .principal-quote::before,
+    .principal-quote::after {
+        font-size: 2.5em;
+        left: 50%;
+        transform: translateX(-50%);
+        top: -5px;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .principal-section {
+        padding: 30px 10px;
+    }
+
+    .principal-container {
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .principal-image {
+        width: 150px;
+        height: 150px;
+        border-width: 1px;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.03);
+    }
+
+    .principal-name {
+        font-size: 1rem;
+    }
+
+    .principal-title {
+        font-size: 0.75rem;
+    }
+
+    .principal-quote {
+        font-size: 0.85rem;
+    }
+
+    .principal-quote::before,
+    .principal-quote::after {
+        font-size: 2em;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0px;
+    }
+}
+
+/*testonomial section*/
+/* --- Testimonials Section --- */
+.testimonials-section {
+    padding: 20px 20px;
+    /* Ample padding */
+    background-color: white;
+    /* Light white background */
+    color: #333;
+    /* Default text color */
+    overflow: hidden;
+    text-align: center;
+    /* Center aligns the header */
+}
+
+.testimonials-header {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    /* Centered with bottom margin */
+    padding: 0 20px;
+}
+
+.testimonials-title {
+    font-size: 2.8rem;
+    color: #001f3f;
+    /* Dark blue from your theme */
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 700;
+}
+
+.testimonials-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #001f3f;
+    /* Yellow accent */
+    border-radius: 2px;
+}
+
+.testimonials-subtitle {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 15px;
+}
+
+.testimonials-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows cards to wrap */
+    justify-content: center;
+    /* Centers cards in the container */
+    gap: 30px;
+    /* Space between cards */
+}
+
+.testimonial-card {
+    background-color: #ffffff;
+    /* White background for each card */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+    text-align: left;
+    /* Text content is left-aligned within the card */
+    flex: 1 1 calc(33.333% - 0px);
+    /* Three columns on large screens */
+    min-width: 280px;
+    /* Minimum width before stacking */
+    display: flex;
+    flex-direction: column;
+    /* Stack content vertically within the card */
+    justify-content: space-between;
+    /* Pushes author to bottom if text is short */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    /* More pronounced shadow */
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: #001f3f;
+    /* Primary blue for the quote icon */
+    margin-bottom: 15px;
+}
+
+.testimonial-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 25px;
+    /* Space before author info */
+    flex-grow: 1;
+    /* Allows text to take up available space */
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+    /* Pushes author to the bottom of the card */
+}
+
+.testimonial-author img {
+    width: 60px;
+    /* Size of author image */
+    height: 60px;
+    border-radius: 50%;
+    /* Circular image */
+    object-fit: cover;
+    margin-right: 15px;
+    border: 2px solid #ffc107;
+    /* Yellow border for author image */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.author-info {
+    text-align: left;
+}
+
+.author-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #001f3f;
+    /* Dark blue for author name */
+    margin: 0;
+}
+
+.author-role {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 0;
+}
+
+
+/* --- Responsive Adjustments for Testimonials Section --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .testimonials-section {
+        padding: 60px 15px;
+    }
+
+    .testimonials-title {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+    }
+
+    .testimonials-title::after {
+        width: 70px;
+        height: 3px;
+    }
+
+    .testimonials-subtitle {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .testimonials-container {
+        gap: 25px;
+    }
+
+    .testimonial-card {
+        flex: 1 1 calc(50% - 25px);
+        /* Two columns on tablets */
+        padding: 25px;
+        min-width: 250px;
+    }
+
+    .quote-icon {
+        font-size: 2rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-author img {
+        width: 50px;
+        height: 50px;
+        margin-right: 12px;
+    }
+
+    .author-name {
+        font-size: 1rem;
+    }
+
+    .author-role {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .testimonials-section {
+        padding: 50px 10px;
+    }
+
+    .testimonials-header {
+        margin-bottom: 40px;
+    }
+
+    .testimonials-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        padding-bottom: 8px;
+    }
+
+    .testimonials-title::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    .testimonials-subtitle {
+        font-size: 0.9rem;
+        margin-top: 8px;
+    }
+
+    .testimonials-container {
+        gap: 20px;
+    }
+
+    .testimonial-card {
+        flex: 1 1 100%;
+        /* Single column on mobile */
+        max-width: 400px;
+        /* Max width for single card */
+        margin: 0 auto;
+        /* Center individual cards */
+        padding: 20px;
+    }
+
+    .quote-icon {
+        font-size: 1.8rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+
+    .testimonial-author img {
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
+    }
+
+    .author-name {
+        font-size: 0.9rem;
+    }
+
+    .author-role {
+        font-size: 0.75rem;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 30px 10px;
+    }
+
+    .testimonials-header {
+        margin-bottom: 30px;
+    }
+
+    .testimonials-title {
+        font-size: 1.6rem;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+    }
+
+    .testimonials-container {
+        gap: 15px;
+    }
+
+    .testimonial-card {
+        padding: 15px;
+    }
+
+    .quote-icon {
+        font-size: 1.5rem;
+    }
+
+    .testimonial-text {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+    }
+
+    .testimonial-author img {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+    }
+
+    .author-name {
+        font-size: 0.85rem;
+    }
+
+    .author-role {
+        font-size: 0.7rem;
+    }
+}
+
+/*section of achievement*/
+/* --- Achievements Section (Accordion Style) --- */
+.achievements-section {
+    padding: 40px 20px;
+    background-color: #F8F8F8;
+    /* Very light, subtle background */
+    color: #333;
+    overflow: hidden;
+    text-align: left;
+    /* Center aligns the header */
+}
+
+.achievements-header {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    /* Centered with bottom margin */
+    padding: 0 20px;
+}
+
+.achievements-title {
+    font-size: 2.8rem;
+    text-align: center;
+    color: #001f3f;
+    /* Dark blue from your theme */
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 700;
+}
+
+.achievements-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #001f3f;
+    /* Yellow accent */
+    border-radius: 2px;
+}
+
+.achievements-subtitle {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 15px;
+}
+
+.accordion-container {
+    max-width: 1200px;
+    /* Max width for the accordion */
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    /* Light border around the whole accordion */
+    border-radius: 12px;
+    overflow: hidden;
+    /* Ensures rounded corners clip content */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow */
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+    /* Separator between items */
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+    /* No border on the last item */
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    background-color: #ffffff;
+    /* White background for header */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: left;
+    /* Ensure text aligns left */
+}
+
+.accordion-header:hover {
+    background-color: #f5f5f5;
+    /* Light hover effect */
+}
+
+.accordion-item.active .accordion-header {
+    background-color: #e0f2ff;
+    /* Light blue background when active */
+}
+
+.accordion-icon {
+    font-size: 1.8rem;
+    color: #001f3f;
+    /* Primary blue for the icon */
+    margin-right: 20px;
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+}
+
+.accordion-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #001f3f;
+    /* Dark blue for title */
+    margin: 0;
+    /* Remove default margin */
+    flex-grow: 1;
+    /* Allows title to take available space */
+    text-align: left;
+    /* Ensure title is left-aligned */
+}
+
+.accordion-toggle-icon {
+    font-size: 1rem;
+    color: #001f3f;
+    /* Primary blue for chevron */
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+}
+
+.accordion-item.active .accordion-toggle-icon {
+    transform: rotate(180deg);
+    /* Rotate chevron when active */
+}
+
+.accordion-content {
+    background-color: #ffffff;
+    /* White background for content */
+    padding: 0 25px;
+    /* Horizontal padding, no vertical padding initially */
+    max-height: 0;
+    /* Hidden by default */
+    overflow: hidden;
+    /* Hide overflowing content */
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    /* Smooth transition for expand/collapse */
+}
+
+/* The JS will dynamically set max-height for .accordion-item.active .accordion-content */
+/* We only need to ensure padding is applied correctly when active */
+.accordion-item.active .accordion-content {
+    max-height: 1000px; /* Set to 1000px as requested */
+    padding: 15px 25px 25px 25px;
+    /* Vertical padding when open */
+}
+
+.accordion-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+    /* Remove default paragraph margin */
+}
+
+
+/* --- Responsive Adjustments for Achievements Accordion --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .achievements-section {
+        padding: 60px 15px;
+    }
+
+    .achievements-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .achievements-title::after {
+        width: 70px;
+        height: 3px;
+    }
+
+    .accordion-container {
+        max-width: 700px;
+        border-radius: 10px;
+    }
+
+    .accordion-header {
+        padding: 18px 20px;
+    }
+
+    .accordion-icon {
+        font-size: 1.6rem;
+        margin-right: 15px;
+    }
+
+    .accordion-header h3 {
+        font-size: 1.15rem;
+    }
+
+    .accordion-toggle-icon {
+        font-size: 0.9rem;
+        margin-left: 15px;
+    }
+
+    .accordion-item.active .accordion-content {
+        padding: 12px 20px 20px 20px;
+    }
+
+    .accordion-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .achievements-section {
+        padding: 50px 10px;
+    }
+
+    .achievements-header {
+        margin-bottom: 30px;
+    }
+
+    .achievements-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .achievements-title::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    .accordion-container {
+        max-width: 100%;
+        /* Allow full width on mobile */
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        /* Lighter shadow */
+    }
+
+    .accordion-header {
+        padding: 15px 18px;
+    }
+
+    .accordion-icon {
+        font-size: 1.4rem;
+        margin-right: 12px;
+    }
+
+    .accordion-header h3 {
+        font-size: 1.05rem;
+    }
+
+    .accordion-toggle-icon {
+        font-size: 0.8rem;
+        margin-left: 12px;
+    }
+
+    .accordion-item.active .accordion-content {
+        padding: 10px 18px 18px 18px;
+    }
+
+    .accordion-content p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .achievements-section {
+        padding: 40px 10px;
+    }
+
+    .achievements-header {
+        margin-bottom: 25px;
+    }
+
+    .achievements-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .accordion-container {
+        border-radius: 6px;
+    }
+
+    .accordion-header {
+        padding: 12px 15px;
+    }
+
+    .accordion-icon {
+        font-size: 1.2rem;
+        margin-right: 10px;
+    }
+
+    .accordion-header h3 {
+        font-size: 0.95rem;
+    }
+
+    .accordion-toggle-icon {
+        font-size: 0.7rem;
+        margin-left: 10px;
+    }
+
+    .accordion-item.active .accordion-content {
+        padding: 8px 15px 15px 15px;
+    }
+
+    .accordion-content p {
+        font-size: 0.8rem;
+    }
+}

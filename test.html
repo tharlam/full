@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meditation Practice</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .section.card-layout {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 60px 30px;
+      max-width: 1200px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-content {
+      flex: 1 1 45%;
+      padding: 20px;
+    }
+
+    .text-content h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .text-content p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .image-container {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-container img {
+      width: 100%;
+      max-width: 500px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .read-more-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .read-more-btn:hover {
+      background-color: #004a99;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 30px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 12px;
+      text-align: left;
+      position: relative;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+    }
+
+    .close-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .section.card-layout {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .text-content {
+        text-align: left;
+        padding: 0 20px;
+      }
+
+      .image-container {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Meditation Section -->
+  <section class="section card-layout" id="mission">
+    <div class="text-content">
+      <h2>Meditation Practice</h2>
+      <p>
+        Students begin their day with mindfulness and meditation sessions guided by experienced monks.
+      </p>
+      <button class="read-more-btn" onclick="openModal()">Read More</button>
+    </div>
+    <div class="image-container">
+      <img src="house.png" alt="Meditation Image" />
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div class="modal" id="readMoreModal">
+    <div class="modal-content">
+      <h3>More About Meditation Practice</h3>
+      <p>
+        Meditation at Tharlam Academy is rooted in centuries-old traditions.
+        Each morning, students are guided through sessions to improve focus, emotional well-being,
+        and compassion. The atmosphere is peaceful and supportive, allowing students to develop lifelong habits.
+      </p>
+      <p>
+        These practices not only reduce stress but also enhance clarity and help the students understand themselves
+        better.
+      </p>
+      <button class="close-btn" onclick="closeModal()">Close</button>
+    </div>
+  </div>
+
+
+
+  <script>
+    function openModal() {
+      document.getElementById('readMoreModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('readMoreModal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById('readMoreModal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
+
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    /*about*/
+    /* Section styling */
+    section.section h2 {
+      text-align: center;
+      margin-bottom: 16px;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    section.section p {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      text-align: none;
+      font-size: 1rem;
+    }
+
+    /* Card container flex */
+    .card-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 450px;
+      padding: 20px;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-number {
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      background-color: #aad4f5;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h3 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /*modal
+    /* Read More button */
+    .read-more-btn {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .read-more-btn:hover {
+      background-color: black;
+    }
+
+
+    /* Modal Styles */
+    .custom-modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* of close button
+    /* Modal Content Footer */
+    .modal-footer {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    /* Close Button (box style) */
+    .close-btn {
+      padding: 10px 20px;
+      background-color: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      background-color: black;
+    }
+
+
+    /* Responsive cards stack at 768px */
+    @media (max-width: 768px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 90%;
+      }
+    }
+  </style>
+
+  <section class="section" id="about" data-aos="fade-up">
+    <div class="card-container">
+      <!-- Card 1 -->
+      <div class="card">
+        <div class="card-number">1</div>
+        <h3>About Us</h3>
+        <p>
+          Article evident arrived express highest men did boy. Mistress sensible entirely am so.
+          Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing.
+          Law others theirs passed but wishes. You day real less till dear read.
+        </p>
+        <button class="read-more-btn" onclick="openModal('modal1')">Read More</button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div class="card-number">2</div>
+        <h3>What We Do</h3>
+        <p>
+          Article evident arrived express highest men did boy. Mistress sensible entirely am so.
+          Quick can manor smart money hopes worth too. Comfort produce husband boy her had hearing.
+          Law others theirs passed but wishes. You day real less till dear read.
+        </p>
+        <button class="read-more-btn" onclick="openModal('modal2')">Read More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal 1 -->
+  <div id="modal1" class="custom-modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <h2>About Us - More Info</h2>
+      <p>This is extended information about Tharlam Academy's origin, mission, and vision. You can add any details here.
+      </p>
+      <div class="modal-footer">
+        <button class="close-btn" onclick="closeModal('modal1')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 -->
+  <div id="modal2" class="custom-modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <h2>What We Do - More Info</h2>
+      <p>This section can contain more detailed activities and programs conducted at the academy.</p>
+      <!-- Close Button at the Bottom -->
+      <div class="modal-footer">
+        <button class="close-btn" onclick="closeModal('modal2')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    //*About Modal
+    function openModal(id) {
+      document.getElementById(id).style.display = "block";
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+
+    // Close modal if clicked outside content
+    window.onclick = function (event) {
+      const modals = document.getElementsByClassName('custom-modal');
+      for (let modal of modals) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</html>

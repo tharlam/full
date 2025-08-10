@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="about_page_title">About Tharlam Academy</title>
+    <link rel="stylesheet" href="about.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-brand" data-i18n="nav_brand">
+            Tharlam Academy </div>
+
+        <button class="menu-toggle" aria-label="Toggle navigation" data-i18n-arialabel="nav_toggle_label">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">
+                    <i class="fas fa-home"></i> <span data-i18n="nav_home_link">Home</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="breadcrumb" data-i18n="about_breadcrumb">Home &rarr; About Us</p>
+            <h1 data-i18n="about_hero_title">Discover Tharlam Academy in Kathmandu, Nepal</h1>
+        </div>
+    </section>
+
+    <section class="philosophy-section">
+        <div class="container">
+            <p class="section-tagline" data-aos="fade-up" data-i18n="philosophy_tagline">OUR PHILOSOPHY</p>
+            <h2 class="section-main-heading" data-aos="fade-up" data-aos-delay="100" data-i18n="philosophy_heading">
+                Rooted in Buddhist Principles,
+                Empowered by Modern Education – Science, Math, English & Beyond.</h2>
+        </div>
+    </section>
+
+    <section class="who-we-are-section">
+        <div class="container">
+            <div class="who-we-are-grid">
+                <div class="who-we-are-text" data-aos="fade-right" data-aos-delay="100">
+                    <h3 class="section-sub-heading" data-i18n="welcome_heading">Welcome to Tharlam Academy</h3>
+                    <p class="section-tagline" data-i18n="welcome_tagline">Where Wisdom Meets Modern Learning</p>
+                    <p data-i18n="welcome_paragraph_1">Nestled in the heart of Kathmandu, Tharlam Academy is more than
+                        just a school — it's a place
+                        where young minds grow with knowledge, compassion, and purpose. Inspired by Buddhist values and
+                        supported by a modern curriculum, we offer students a well-rounded education rooted in tradition
+                        and aimed at the future.</p>
+
+                    <h3 data-i18n="curriculum_overview_heading">Curriculum Overview</h3>
+                    <p data-i18n="curriculum_overview_paragraph">Tharlam Academy offers a unique curriculum spanning
+                        pre-primary to secondary levels. Our
+                        integrated approach empowers students by blending Buddhist traditions with diverse modern
+                        subjects, preparing them for both academic excellence and a values-based life.</p>
+
+                    <button id="openCurriculumModal" class="btn-primary" data-i18n="view_curriculum_button">View Full
+                        Curriculum</button>
+
+                </div>
+                <div class="who-we-are-image" data-aos="fade-left" data-aos-delay="200">
+                    <img src="about.photo.JPG" alt="Students in a classroom setting" class="responsive-image"
+                        data-i18n-alt="about_photo_alt">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="curriculumModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" data-i18n="modal_close_button">&times;</span>
+            <h2 class="modal-title" data-i18n="modal_curriculum_title">Explore Our Curriculum</h2>
+
+            <h4 data-i18n="modal_preprimary_level_heading">Pre-Primary Level (Ages 4–6)</h4>
+            <ul>
+                <li><strong data-i18n="modal_preprimary_tibetan_language_label">Tibetan Language:</strong> <span
+                        data-i18n="modal_preprimary_tibetan_language_desc">Basic reading and writing</span></li>
+                <li><strong data-i18n="modal_preprimary_english_math_label">English & Mathematics:</strong> <span
+                        data-i18n="modal_preprimary_english_math_desc">Foundational concepts and early numeracy</span>
+                </li>
+                <li><strong data-i18n="modal_preprimary_daily_prayers_label">Daily Prayers:</strong> <span
+                        data-i18n="modal_preprimary_daily_prayers_desc">Cultivating mindfulness and discipline</span>
+                </li>
+                <li><strong data-i18n="modal_preprimary_creative_physical_label">Creative & Physical
+                        Activities:</strong> <span data-i18n="modal_preprimary_creative_physical_desc">Art, imaginative
+                        play, and movement for holistic early development</span></li>
+            </ul>
+
+            <h4 data-i18n="modal_primary_level_heading">Primary Level (Classes 1–5)</h4>
+            <ul>
+                <li><strong data-i18n="modal_primary_languages_label">Languages:</strong> <span
+                        data-i18n="modal_primary_languages_desc">In-depth Tibetan and English language
+                        acquisition</span></li>
+                <li><strong data-i18n="modal_primary_core_subjects_label">Core Subjects:</strong> <span
+                        data-i18n="modal_primary_core_subjects_desc">Mathematics, Science, and Social Studies
+                        fundamentals</span></li>
+                <li><strong data-i18n="modal_primary_buddhist_studies_label">Buddhist Studies:</strong> <span
+                        data-i18n="modal_primary_buddhist_studies_desc">Introduction to core teachings, ethics, and
+                        ritual practices</span></li>
+                <li><strong data-i18n="modal_primary_cultural_learning_label">Cultural Learning:</strong> <span
+                        data-i18n="modal_primary_cultural_learning_desc">Engaging stories and values-based lessons from
+                        Buddhist tradition</span></li>
+            </ul>
+
+            <h4 data-i18n="modal_secondary_level_heading">Secondary Level (Classes 6–8)</h4>
+            <ul>
+                <li><strong data-i18n="modal_secondary_languages_label">Languages:</strong> <span
+                        data-i18n="modal_secondary_languages_desc">Advanced Tibetan grammar and refined English
+                        composition</span></li>
+                <li><strong data-i18n="modal_secondary_core_academics_label">Core Academics:</strong> <span
+                        data-i18n="modal_secondary_core_academics_desc">Advanced Mathematics and Science concepts</span>
+                </li>
+                <li><strong data-i18n="modal_secondary_buddhist_philosophy_label">Buddhist Philosophy:</strong> <span
+                        data-i18n="modal_secondary_buddhist_philosophy_desc">Deeper study of the Four Noble Truths and
+                        the Eightfold Path</span></li>
+                <li><strong data-i18n="modal_secondary_ritual_training_label">Ritual Training:</strong> <span
+                        data-i18n="modal_secondary_ritual_training_desc">Comprehensive training in Torma and Karkeen
+                        making, advanced puja practices, ritual instrument playing, sutra chanting, intricate mandala
+                        (kheel khor) creation, and more</span></li>
+            </ul>
+
+            <h4 data-i18n="modal_special_buddhist_practices_heading">Special Buddhist Practices</h4>
+            <p data-i18n="modal_special_buddhist_practices_paragraph">These profound practices are thoughtfully
+                integrated across all academic levels:</p>
+            <ul>
+                <li data-i18n="modal_mandala_offering">Mandala Offering</li>
+                <li data-i18n="modal_prostrations">Prostrations</li>
+                <li data-i18n="modal_guru_yoga">Guru Yoga</li>
+                <li data-i18n="modal_buddha_events">Buddha Event Celebrations (e.g., Vesak, Lhabab Düchen)</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="what-we-do-section">
+        <div class="container">
+            <div class="what-we-do-grid">
+                <div class="what-we-do-image" data-aos="fade-right">
+                    <img src="about.banner.JPG" alt="Students engaged in learning activities" class="responsive-image"
+                        data-i18n-alt="what_we_do_image_alt">
+                </div>
+                <div class="what-we-do-text" data-aos="fade-left">
+                    <h3 class="section-sub-heading" data-i18n="what_we_do_heading">What We Do</h3>
+                    <p data-i18n="what_we_do_paragraph_1">Tharlam Academy provides a comprehensive educational
+                        experience encompassing both traditional
+                        Buddhist studies and a modern academic curriculum. Our programs are designed to foster
+                        intellectual growth, ethical development, and practical skills.</p>
+                    <p data-i18n="what_we_do_paragraph_2">We offer a rich environment for learning that encourages
+                        critical thinking, creativity, and a
+                        deep understanding of diverse subjects, preparing students for future challenges and
+                        opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="our-history-section">
+        <div class="container">
+            <p class="section-tagline" data-aos="fade-up" data-i18n="history_tagline">Our Legacy</p>
+            <h2 class="section-main-heading" data-aos="fade-up" data-aos-delay="100" data-i18n="history_main_heading">A
+                Journey Through Centuries of
+                Faith and Learning</h2>
+
+            <div class="history-row" data-aos="fade-up">
+                <div class="history-text" data-aos="fade-right">
+                    <h3 class="history-sub-heading" data-i18n="history_from_ancient_heading">From Ancient Roots to New
+                        Horizons</h3>
+                    <p data-i18n="history_paragraph_1">Tharlam Monastery, a revered Sakya Buddhist institution whose
+                        full name is **Shree Tharlam Sasang
+                        Namgyal Ling Monastery**, traces its origins to **1436**. It was originally established by **Ga
+                        Rabjampa Kunga Yeshe** in **Kham, Eastern Tibet**, beginning its long and significant journey as
+                        a center for Buddhist teachings and practice.</p>
+                    <p data-i18n="history_paragraph_2">Centuries later, its legacy was faithfully rebuilt. In **1981**,
+                        the monastery was re-established
+                        in **Boudhanath, Kathmandu, Nepal**, by **Dezhung Rinpoche**. This profound re-establishment
+                        fulfilled the specific instructions of his guru, **Gaton Dorjechang**, ensuring the spiritual
+                        and material continuity of Tharlam Monastery's enduring tradition for future generations.</p>
+                </div>
+                <div class="history-image" data-aos="fade-left">
+                    <img src="monastery.png" alt="Historical image of Tharlam Monastery" class="responsive-image"
+                        data-i18n-alt="monastery_image_alt">
+                </div>
+            </div>
+
+            <div class="history-row" data-aos="fade-up" data-aos-delay="100">
+                <div class="history-text" data-aos="fade-right">
+                    <h3 class="history-sub-heading" data-i18n="history_academy_bridging_heading">Tharlam Academy:
+                        Bridging Worlds</h3>
+                    <p data-i18n="history_academy_paragraph_1">Tharlam Academy, an integral part of Tharlam Monastery,
+                        was established in **1985** right here at
+                        the monastery. Its primary purpose was to introduce young monks to essential Western education,
+                        including subjects like mathematics, English, science, and various languages. This initiative
+                        was crucial, as at that time, Tharlam Monastery primarily focused on teaching rituals and the
+                        Tibetan language.</p>
+                    <p data-i18n="history_academy_paragraph_2">Significant improvements began in the early 2000s,
+                        enabling the full integration of a
+                        comprehensive Western curriculum. Over the past two decades, we have diligently worked to
+                        provide the best quality education, allowing our students to excel in subjects like math and
+                        science, and become proficient in multiple languages. Today, Tharlam Academy proudly educates
+                        around a hundred students, preparing them for both monastic life and the broader world.</p>
+                </div>
+                <div class="history-image" data-aos="fade-left">
+                    <img src="house.png" alt="Historical image of Tharlam Academy" class="responsive-image"
+                        data-i18n-alt="academy_building_image_alt">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="interactive-tabs-section">
+        <div class="container interactive-tabs-grid">
+            <div class="tabs-navigation" data-aos="fade-right">
+                <button class="tab-button active" data-tab="daily-schedule" data-i18n="tab_daily_schedule">Daily
+                    Schedule</button>
+                <button class="tab-button" data-tab="saturday-activities" data-i18n="tab_monthly_sports_day">Monthly
+                    Sports Day</button>
+                <button class="tab-button" data-tab="friday-activities" data-i18n="tab_friday_activities">Friday
+                    Activities</button>
+            </div>
+
+            <div class="tabs-content" data-aos="fade-left">
+                <div id="daily-schedule" class="tab-panel active">
+                    <h3 class="tab-panel-title" data-i18n="daily_schedule_title">Our Daily Routine at Tharlam Academy
+                    </h3>
+                    <p class="tab-panel-intro" data-i18n="daily_schedule_intro">
+                        Each day is thoughtfully structured to balance spiritual practice, academic learning, and
+                        personal development. Here's a glimpse into a typical day in the life of our students:
+                    </p>
+                    <div class="schedule-table-wrapper">
+                        <table class="daily-schedule-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="table_time_header">Time</th>
+                                    <th data-i18n="table_activity_header">Activity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>5:30 AM</td>
+                                    <td data-i18n="daily_morning_puja">Morning Puja and Prayers</td>
+                                </tr>
+                                <tr>
+                                    <td>7:00 AM</td>
+                                    <td data-i18n="daily_breakfast">Breakfast</td>
+                                </tr>
+                                <tr>
+                                    <td>7:40 AM</td>
+                                    <td data-i18n="daily_avalokiteshvara_prayer">Avalokiteshvara Prayer & Meditation
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10:30 AM</td>
+                                    <td data-i18n="daily_academic_classes">Academic Classes</td>
+                                </tr>
+                                <tr>
+                                    <td>3:30 PM</td>
+                                    <td data-i18n="daily_sports_play">Sports and Play Time</td>
+                                </tr>
+                                <tr>
+                                    <td>6:00 PM</td>
+                                    <td data-i18n="daily_dinner_break">Dinner Break</td>
+                                </tr>
+                                <tr>
+                                    <td>8:30 PM</td>
+                                    <td data-i18n="daily_homework_self_study">Homework and Self-Study</td>
+                                </tr>
+                                <tr>
+                                    <td>9:30 PM</td>
+                                    <td data-i18n="daily_sleeping_time">Sleeping Time</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="saturday-activities" class="tab-panel">
+                    <h3 class="tab-panel-title" data-i18n="monthly_sports_title">Monthly Sports Day</h3>
+                    <p class="tab-panel-intro" data-i18n="monthly_sports_intro">
+                        At the end of every month, Tharlam Academy organizes a special **Sports Day** on Saturday. This
+                        event is designed to foster our students' skills, teamwork, and healthy competition as they
+                        participate through our four vibrant houses: **White House, Red House, Blue House, and Yellow
+                        House.**
+                    </p>
+                    <div class="schedule-table-wrapper">
+                        <table class="daily-schedule-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="sports_table_game_header">Game</th>
+                                    <th data-i18n="sports_table_participants_header">Participants</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-i18n="sports_football_game">Football</td>
+                                    <td data-i18n="sports_interhouse_competition">Inter-house competition</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="sports_relay_race_game">Relay Race</td>
+                                    <td data-i18n="sports_interhouse_competition_relay">Inter-house competition</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="sports_kabaddi_game">Kabaddi</td>
+                                    <td data-i18n="sports_interhouse_competition_kabaddi">Inter-house competition</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="sports_volleyball_game">Volleyball</td>
+                                    <td data-i18n="sports_interhouse_competition_volleyball">Inter-house competition
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="sports_jumps_game">High Jump & Long Jump</td>
+                                    <td data-i18n="sports_interhouse_competition_jumps">Inter-house competition</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="sports_various_games_game">Various Games</td>
+                                    <td data-i18n="sports_other_competitions">Other inter-house competitions and
+                                        recreational activities</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="friday-activities" class="tab-panel">
+                    <h3 class="tab-panel-title" data-i18n="friday_activities_title">Weekly Friday Activities</h3>
+                    <p class="tab-panel-intro" data-i18n="friday_activities_intro">
+                        Every Friday at Tharlam Academy is dedicated to diverse extracurricular activities, fostering
+                        creative expression, critical thinking, and social skills outside the regular academic and
+                        spiritual routine.
+                    </p>
+                    <div class="schedule-table-wrapper">
+                        <table class="daily-schedule-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="activity_table_activity_header">Activity</th>
+                                    <th data-i18n="activity_table_description_header">Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-i18n="friday_speech_presentation_activity">Speech & Presentation</td>
+                                    <td data-i18n="friday_speech_presentation_desc">Students practice public speaking
+                                        and presentation skills in English, Tibetan,
+                                        and Nepali.</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="friday_gk_quiz_activity">General Knowledge Quiz</td>
+                                    <td data-i18n="friday_gk_quiz_desc">Engaging quizzes on various subjects to test and
+                                        expand students' knowledge.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="friday_creative_project_activity">Creative Project Work</td>
+                                    <td data-i18n="friday_creative_project_desc">Collaborative projects focused on
+                                        topics like water preservation, animal
+                                        welfare, and natural phenomena (e.g., volcanic eruptions).</td>
+                                </tr>
+                                <tr>
+                                    <td data-i18n="friday_debate_discussion_activity">Debate & Discussion</td>
+                                    <td data-i18n="friday_debate_discussion_desc">Structured debates on diverse topics
+                                        such as the impact of education, plastic
+                                        use, village vs. city life, and the pros and cons of internet usage.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="future-updates-section">
+        <div class="container">
+            <h2 class="section-main-heading" data-i18n="future_updates_heading">More Information
+                Coming Soon!</h2>
+            <p data-i18n="future_updates_paragraph_1">We are continuously
+                working to expand our website with more
+                detailed information about our programs, faculty, campus facilities, and student life. Please check back
+                regularly for the latest updates and exciting news from Tharlam Academy.</p>
+            <p data-i18n="future_updates_paragraph_2">Thank you for your
+                patience and interest in our academy!</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p data-i18n="footer_copyright">&copy; 2025 Tharlam Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="about.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

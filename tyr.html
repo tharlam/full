@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tharlam Academy FAQ</title>
+  <style>
+    /* Global & typography */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    /* FAQ Section Container */
+    .faq-section {
+      position: relative;
+      display: flex;
+
+      /* extra top padding for heading */
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      max-width: 900px;
+      margin: 60px auto 60px auto;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      width: 250px;
+      flex-shrink: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sidebar li {
+      padding: 14px;
+      color: #2c3e50;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s;
+      text-align: center;
+      user-select: none;
+    }
+
+    .sidebar li:hover,
+    .sidebar li:focus {
+      background: #d9e2ef;
+      outline: none;
+    }
+
+    .sidebar .active {
+      background: #2c3e50;
+      color: white;
+      border-radius: 10px;
+    }
+
+    /* FAQ Content */
+    .faq-content {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      flex: 1;
+      min-width: 300px;
+      max-width: 600px;
+    }
+
+    .faq-content h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #333;
+      text-align: center;
+    }
+
+    .underline {
+      width: 60px;
+      height: 3px;
+      background: #2c3e50;
+      margin: 0 auto 20px;
+      border: none;
+    }
+
+    .faq-tab {
+      display: none;
+      outline: none;
+    }
+
+    .faq-tab.active {
+      display: block;
+    }
+
+    .faq-tab p,
+    .faq-tab ol,
+    .faq-tab ul,
+    .faq-tab dl {
+      line-height: 1.7;
+      color: #333;
+      font-size: 1rem;
+      margin-bottom: 12px;
+    }
+
+    /* Table styles if used */
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      min-width: 400px;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f2f2f2;
+    }
+
+    /* Responsive Mobile Styles */
+    @media (max-width: 768px) {
+      .faq-section {
+        flex-direction: column;
+        padding-top: 60px;
+        /* ensure heading doesn't overlap content */
+      }
+
+      .sidebar {
+        order: 1;
+        width: 100%;
+        margin-bottom: 16px;
+        box-shadow: none;
+        padding: 10px 0;
+      }
+
+      .sidebar ul {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .sidebar li {
+        font-size: 1.1rem;
+        padding: 12px 8px;
+        border-radius: 0;
+      }
+
+      .faq-content {
+        order: 2;
+        width: 100%;
+        padding: 20px 15px;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="section" id="faq" data-aos="fade-up">
+    <section class="faq-section">
+      <div class="sidebar" role="tablist" aria-label="FAQ categories">
+        <ul>
+          <li class="tab-link active" data-tab="schedule" role="tab" tabindex="0" aria-selected="true"
+            aria-controls="schedule">Schedule</li>
+          <li class="tab-link" data-tab="meals" role="tab" tabindex="-1" aria-selected="false" aria-controls="meals">
+            Event</li>
+          <li class="tab-link" data-tab="notices" role="tab" tabindex="-1" aria-selected="false"
+            aria-controls="notices">Notices</li>
+        </ul>
+      </div>
+
+      <!-- Schedule Tab -->
+      <div id="schedule" class="faq-tab active faq-content" role="tabpanel" tabindex="-1"
+        aria-labelledby="schedule-tab">
+        <dl>
+          <dt><strong>What is the daily routine at Tharlam Academy?</strong></dt>
+          <dd>
+            <ul>
+              <li><strong>6:00 am</strong> – Morning puja & meditation in prayer hall</li>
+              <li><strong>7:00 am</strong> – Breakfast in dining hall</li>
+              <li><strong>8:00 am – 12:00 pm</strong> – Morning classes: Math, Science, Language, Buddhist Studies</li>
+              <li><strong>12:00 pm</strong> – Midday meditation break</li>
+              <li><strong>12:30 pm</strong> – Lunch</li>
+              <li><strong>1:30 pm – 4:00 pm</strong> – Afternoon classes & scripture debates</li>
+              <li><strong>4:00 pm</strong> – Tea break & free time</li>
+              <li><strong>5:00 pm</strong> – Evening puja & chanting</li>
+              <li><strong>6:00 pm</strong> – Dinner</li>
+              <li><strong>7:00 pm – 8:00 pm</strong> – Study hall / self-study</li>
+              <li><strong>8:00 pm</strong> – Lights out</li>
+            </ul>
+          </dd>
+          <dt><strong>How are Buddhist practices integrated?</strong></dt>
+          <dd>Daily pujas, chanting and meditation are woven into morning and evening routines, blending spiritual
+            training with modern education.</dd>
+        </dl>
+      </div>
+
+      <!-- Events Tab -->
+      <div id="meals" class="faq-tab faq-content" role="tabpanel" tabindex="-1" aria-labelledby="meals-tab">
+        <dl>
+          <dt><strong>What festivals do we celebrate?</strong></dt>
+          <dd>
+            <ul>
+              <li><strong>Lhosar</strong> – Tibetan New Year (around Mar 26–Mar 31): special pujas, cultural
+                performances and community gatherings.</li>
+              <li><strong>Buddha Jayanti</strong> – Birth anniversary of the Buddha (e.g., April 25, 2025):
+                commemorative prayers and teachings.</li>
+              <li><strong>Special Day Celebrations</strong> – Includes Guru Rinpoche Day, Medicine Buddha Day, and
+                monthly commemorations of lineage masters.</li>
+            </ul>
+          </dd>
+          <dt><strong>Are all students involved?</strong></dt>
+          <dd>Yes—students participate in ceremonial preparations, chanting, and cultural performances for these events.
+          </dd>
+        </dl>
+      </div>
+
+      <!-- Notices Tab -->
+      <div id="notices" class="faq-tab faq-content" role="tabpanel" tabindex="-1" aria-labelledby="notices-tab">
+        <dl>
+          <dt><strong>What is our Academy’s goal?</strong></dt>
+          <dd>
+            Our aim at Tharlam Academy is to cultivate compassionate, wise, and service-oriented monks who can
+            skillfully blend traditional Buddhist learning with contemporary knowledge, becoming beacons of Dharma in
+            the modern world.
+          </dd>
+          <dt><strong>How do we accomplish this?</strong></dt>
+          <dd>
+            Through a balanced education: morning pujas, academic subjects, scripture debate, language & IT training,
+            cultural arts, and active community service.
+          </dd>
+        </dl>
+      </div>
+    </section>
+  </section>
+
+  <script>
+    // FAQ tab switching with accessibility improvements
+    const tabs = document.querySelectorAll('.tab-link');
+    const tabPanels = document.querySelectorAll('.faq-tab');
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        activateTab(tab);
+      });
+
+      tab.addEventListener('keydown', e => {
+        let newIndex = null;
+
+        if (e.key === 'ArrowRight') {
+          newIndex = (index + 1) % tabs.length;
+        } else if (e.key === 'ArrowLeft') {
+          newIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (e.key === 'Home') {
+          newIndex = 0;
+        } else if (e.key === 'End') {
+          newIndex = tabs.length - 1;
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          activateTab(tab);
+          return;
+        }
+
+        if (newIndex !== null) {
+          e.preventDefault();
+          tabs[newIndex].focus();
+        }
+      });
+    });
+
+    function activateTab(tab) {
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+        t.setAttribute('tabindex', '-1');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      tab.setAttribute('tabindex', '0');
+      tab.focus();
+
+      const tabId = tab.dataset.tab;
+
+      tabPanels.forEach(panel => {
+        if (panel.id === tabId) {
+          panel.classList.add('active');
+          panel.focus();
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1165 @@
+/* --- Facilities Section (Tabbed Grid Layout - sectionb.css) --- */
+.facilities-tabbed-grid-section {
+    padding: 10px 20px;
+    background-color: white;
+    /* Very light, subtle background */
+    color: #333;
+    overflow: hidden;
+    text-align: center;
+    /* Center aligns the header */
+}
+
+.facilities-header {
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+    padding: 0 20px;
+}
+
+.facilities-title {
+    font-size: 2.8rem;
+    color: #001f3f;
+    /* Dark blue from your theme */
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 12px;
+    font-weight: 700;
+}
+
+.facilities-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #001f3f;
+    /* Yellow accent */
+    border-radius: 2px;
+}
+
+.facilities-subtitle {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.7;
+    margin-top: 15px;
+}
+
+/* Tab Buttons Container */
+.facilities-tabs-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* Allow tabs to wrap on smaller screens */
+    gap: 15px;
+    /* Space between tab buttons */
+    margin-bottom: 40px;
+    border-bottom: 2px solid #e0e0e0;
+    /* Subtle line under tabs */
+    padding-bottom: 15px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tab-btn {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #555;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 6px;
+    /* Slightly rounded tabs */
+}
+
+.tab-btn:hover {
+    color: #001f3f;
+    background-color: white;
+    /* Light blue on hover */
+}
+
+.tab-btn.active {
+    color: #001f3f;
+    background-color: white;
+    /* Active tab background */
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    /* Position under the border-bottom of container */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    /* Underline width */
+    height: 3px;
+    background-color: #001f3f;
+    /* Primary blue underline */
+    border-radius: 2px;
+}
+
+
+/* Facilities Grid Content */
+.facilities-grid-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Responsive grid columns */
+    gap: 30px;
+    /* Space between cards */
+    max-width: 1215px;
+    margin: 0 auto;
+    padding: 0 0px;
+}
+
+.facility-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    /* Ensures image and title stay within bounds */
+    display: flex;
+    flex-direction: column;
+    /* Stack image and title vertically */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+    /* Lift effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card-image-placeholder {
+    width: 100%;
+    padding-bottom: 66.66%;
+    /* 3:2 aspect ratio (200/300 = 0.6666) */
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    /* Placeholder background */
+}
+
+.card-image-placeholder img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.facility-card:hover .card-image-placeholder img {
+    transform: scale(1.08);
+    /* Zoom effect on image hover */
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #001f3f;
+    padding: 18px 15px;
+    text-align: center;
+    background-color: #ffffff;
+    border-top: 1px solid #f0f0f0;
+    /* Subtle separator */
+}
+
+/* Hidden state for filtered cards (controlled by JS) */
+.facility-card.hidden {
+    display: none;
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* Visible state for filtered cards (controlled by JS) */
+.facility-card.visible {
+    display: flex;
+    /* Override display: none */
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* --- Responsive Adjustments for Facilities Tabbed Grid --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .facilities-tabbed-grid-section {
+        padding: 60px 15px;
+    }
+
+    .facilities-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .facilities-title::after {
+        width: 70px;
+        height: 3px;
+    }
+
+    .facilities-tabs-container {
+        gap: 10px;
+        padding-bottom: 12px;
+        margin-bottom: 30px;
+    }
+
+    .tab-btn {
+        padding: 8px 15px;
+        font-size: 0.95rem;
+    }
+
+    .tab-btn.active::after {
+        bottom: -14px;
+        width: 70%;
+        height: 2px;
+    }
+
+    .facilities-grid-content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        /* Adjust minmax for 2 columns */
+        gap: 25px;
+    }
+
+    .card-image-placeholder {
+        padding-bottom: 75%;
+        /* Adjust aspect ratio slightly for smaller screens */
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        padding: 15px 12px;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .facilities-tabbed-grid-section {
+        padding: 50px 10px;
+    }
+
+    .facilities-header {
+        margin-bottom: 30px;
+    }
+
+    .facilities-title {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .facilities-title::after {
+        width: 60px;
+        height: 2px;
+    }
+
+    .facilities-tabs-container {
+        flex-direction: column;
+        /* Stack tabs vertically */
+        gap: 8px;
+        padding-bottom: 10px;
+        margin-bottom: 25px;
+        border-bottom: none;
+        /* Remove horizontal border */
+    }
+
+    .tab-btn {
+        width: 100%;
+        /* Full width tabs */
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        text-align: center;
+        border: 1px solid #e0e0e0;
+        /* Add individual borders to stacked tabs */
+        border-radius: 8px;
+    }
+
+    .tab-btn.active {
+        border-color: #001f3f;
+        /* Active border for stacked tabs */
+    }
+
+    .tab-btn.active::after {
+        display: none;
+        /* Remove underline when stacked */
+    }
+
+    .facilities-grid-content {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+        gap: 20px;
+    }
+
+    .card-image-placeholder {
+        padding-bottom: 60%;
+        /* Adjust aspect ratio for single column */
+    }
+
+    .card-title {
+        font-size: 1.05rem;
+        padding: 12px 10px;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .facilities-tabbed-grid-section {
+        padding: 40px 10px;
+    }
+
+    .facilities-header {
+        margin-bottom: 25px;
+    }
+
+    .facilities-title {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .facilities-tabs-container {
+        gap: 6px;
+        margin-bottom: 20px;
+    }
+
+    .tab-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    .facilities-grid-content {
+        gap: 15px;
+    }
+
+    .card-image-placeholder {
+        padding-bottom: 65%;
+        /* Fine-tune aspect ratio */
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+        padding: 10px 8px;
+    }
+}
+
+/*sports section*/
+/* --- Sports Section (Dynamic Parallax Scroll Showcase - Hero Only - sectione.css) --- */
+.sports-parallax-section {
+    background-color: #f8fbfd;
+    /* Light background for the overall section */
+    color: #333;
+    overflow: hidden;
+    /* Important for containing elements and AOS */
+    padding: 0;
+    /* No padding on the section itself, hero handles height */
+}
+
+/* Parallax Hero Section */
+.parallax-hero {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    /* Adjust hero height as needed */
+    background-image: url('foot.jpg');
+    /* Default background image */
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    /* KEY FOR PARALLAX EFFECT - Attempts to be fixed on all devices */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.65);
+    /* Darker overlay for strong contrast */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    /* Stronger shadow for impact */
+}
+
+.hero-title .highlight-yellow {
+    color: white;
+    /* white */
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-action-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+}
+
+/* Reusing primary-btn styles (ensure these are globally available or defined in style.css) */
+.primary-btn {
+    background-color: #001f3f;
+    color: white;
+    border: 2px solid #001f3f;
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+.primary-btn:hover {
+    background-color: black;
+    border-color: black;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+
+/* --- Responsive Adjustments for Sports Section (Hero Only) --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .parallax-hero {
+        height: 550px;
+        padding: 60px 15px;
+        /* Add padding to hero itself */
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
+
+    .hero-action-btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .parallax-hero {
+        height: 450px;
+        padding: 50px 10px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        margin-bottom: 15px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-action-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .parallax-hero {
+        height: 380px;
+        padding: 40px 10px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+        margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+
+    .hero-action-btn {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+}
+/******/
+/* --- Global Styles & Base Layout --- */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: #f0f8ff;
+    color: #333;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* --- Tharlam Text Section --- */
+.tharlam-text-section {
+    padding: 20px 10px;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #343a40;
+}
+
+.tharlam-text-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tharlam-text-container h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.tharlam-text-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+.tharlam-text-container p {
+    font-size: clamp(1rem, 2.5vw, 1.1em);
+    margin: 0;
+}
+
+/* --- Card-Based Carousel Styles --- */
+.card-carousel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 0px;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    gap: 30px;
+    padding-bottom: 20px;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-card {
+    flex-shrink: 0;
+    width: 375px;
+    min-height: 500px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: center;
+    overflow: hidden;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.carousel-card:hover .card-image {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-title {
+    font-size: clamp(1.5rem, 1vw, 1rem);
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.event-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #007bff;
+}
+
+/* Corrected CSS for the read more functionality */
+.card-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 10px 0;
+    transition: max-height 0.3s ease-out;
+    position: relative;
+}
+
+/* This is the default collapsed state */
+.card-content p.collapsed {
+    max-height: 7.5em;
+    overflow: hidden;
+}
+
+/* This adds the gradient fade-out for the collapsed state */
+.card-content p.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3em;
+    background: linear-gradient(to bottom, rgba(248, 249, 250, 0), rgba(248, 249, 250, 1));
+}
+
+/* The crucial fix: Hides the gradient when the text is expanded */
+.card-content p:not(.collapsed)::after {
+    display: none;
+}
+
+.read-more-btn {
+    align-self: flex-start;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-top: 5px;
+    background-color: #001f3f;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.read-more-btn:hover {
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+}
+/* End of corrected CSS */
+
+.world-cleaning-banner { background-image: url('house.png'); }
+.saga-dawa-banner { background-image: url('house.png'); }
+.dezhung-rinpoche-banner { background-image: url('house.png'); }
+.annual-ceremony-banner { background-image: url('house.png'); }
+.lhosar-banner { background-image: url('house.png'); }
+
+
+/* --- Navigation Controls --- */
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    margin: 10px;
+}
+
+.carousel-prev-button,
+.carousel-next-button {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.carousel-prev-button:hover,
+.carousel-next-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.carousel-dot-indicators {
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    border: none;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.carousel-dot.active,
+.carousel-dot:hover {
+    background-color: #000;
+    transform: scale(1.2);
+}
+
+/* --- Responsive Adjustments --- */
+/*
+    These media queries adjust the layout for different screen sizes,
+    following your provided example.
+*/
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .carousel-card {
+        width: 320px; /* Adjust card width for tablets */
+        min-height: 480px;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .carousel-container {
+        padding: 0 15px;
+        gap: 20px;
+    }
+
+    .carousel-card {
+        width: 90vw; /* Take up most of the viewport width on mobile */
+        min-height: 450px;
+    }
+
+    .card-content p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .carousel-container {
+        padding: 0 10px;
+    }
+
+    .carousel-card {
+        width: 95vw; /* Slightly larger width for very small screens */
+        min-height: 420px;
+    }
+    
+    .event-title {
+        font-size: 1.4rem;
+    }
+
+    .card-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/*section of health*/
+/* --- Tharlam Clinic Services Section Styles (Color Matched & Button Removed) --- */
+.tharlam-clinic-section-exact {
+    background-color: #ffffff;
+    /* Main white background */
+    color: #333;
+    overflow: hidden;
+    /* For AOS animations */
+    padding-bottom: 40px;
+    /* Padding for the bottom of the section */
+}
+
+.clinic-hero-banner {
+    background-color: #001f3f;
+    /* Dark blue, matching your primary dark color */
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    /* Space below the banner */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+}
+
+.clinic-hero-title {
+    font-size: 3rem;
+    color: white;
+    /* Blue color as requested for the "blue mark" text */
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.clinic-content-wrapper-exact {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: flex-start;
+    /* Align items to the top */
+}
+
+.clinic-intro-block-exact {
+    flex: 0 0 25%;
+    /* Takes 25% width */
+    padding-right: 30px;
+    /* Space between intro and grid */
+    text-align: left;
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+.clinic-sub-heading {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #001f3f;
+    /* Dark blue for sub-heading */
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.clinic-sub-heading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    /* Underline for SERVICES */
+    height: 3px;
+    background-color: #001f3f;
+    /* Yellow accent */
+}
+
+
+.clinic-intro-text-exact {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+    /* Slightly softer text color */
+    margin-bottom: 0;
+    /* Removed margin-bottom since button is gone */
+}
+
+/* Removed: .clinic-view-more-btn-exact styles */
+
+.clinic-services-grid-exact {
+    flex: 0 0 75%;
+    /* Takes 75% width */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 3 columns */
+    gap: 20px;
+    /* Space between service items */
+    box-sizing: border-box;
+}
+
+.clinic-service-item-exact {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    /* Light border for each item */
+    border-radius: 8px;
+    /* Slightly more rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    /* Lighter shadow */
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.clinic-service-item-exact:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
+    border-color: #001f3f;
+    /* Blue border on hover */
+}
+
+.service-icon-container-exact {
+    width: 60px;
+    height: 60px;
+    background-color: #001f3f;
+    /* Primary blue background for the circle */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 15px auto;
+    /* Center icon and add bottom margin */
+    transition: background-color 0.3s ease;
+}
+
+.clinic-service-item-exact:hover .service-icon-container-exact {
+    background-color: #001f3f;
+    /* Yellow on hover, matching your accent color */
+}
+
+.service-icon-exact {
+    font-size: 2.2rem;
+    color: #ffffff;
+    /* White icon color */
+    transition: color 0.3s ease;
+}
+
+.clinic-service-item-exact:hover .service-icon-exact {
+    color: white;
+    /* Dark blue on hover, for contrast */
+}
+
+.clinic-service-item-exact h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #001f3f;
+    /* Dark blue for title */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.clinic-service-item-exact p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #777;
+    margin-bottom: 0;
+}
+
+
+/* --- Responsive Adjustments for Tharlam Clinic Services Section --- */
+
+/* Tablets and smaller desktops (max-width: 992px) */
+@media (max-width: 992px) {
+    .clinic-hero-banner {
+        padding: 30px 15px;
+        margin-bottom: 40px;
+    }
+
+    .clinic-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .clinic-content-wrapper-exact {
+        padding: 0 15px;
+    }
+
+    .clinic-intro-block-exact {
+        flex: 0 0 100%;
+        /* Stack intro block on top */
+        padding-right: 0;
+        margin-bottom: 40px;
+        /* Space below intro block */
+        text-align: center;
+    }
+
+    .clinic-sub-heading {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .clinic-sub-heading::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .clinic-intro-text-exact {
+        font-size: 0.9rem;
+    }
+
+    .clinic-services-grid-exact {
+        flex: 0 0 100%;
+        /* Full width for grid */
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        /* Adjust columns for tablet */
+        gap: 15px;
+    }
+
+    .service-icon-container-exact {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 12px;
+    }
+
+    .service-icon-exact {
+        font-size: 2rem;
+    }
+
+    .clinic-service-item-exact h4 {
+        font-size: 1rem;
+    }
+
+    .clinic-service-item-exact p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .tharlam-clinic-section-exact {
+        padding-bottom: 60px;
+    }
+
+    .clinic-hero-banner {
+        padding: 25px 10px;
+        margin-bottom: 30px;
+    }
+
+    .clinic-hero-title {
+        font-size: 2rem;
+    }
+
+    .clinic-content-wrapper-exact {
+        padding: 0 10px;
+    }
+
+    .clinic-intro-block-exact {
+        margin-bottom: 30px;
+    }
+
+    .clinic-sub-heading {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+    }
+
+    .clinic-sub-heading::after {
+        width: 50px;
+        height: 2px;
+    }
+
+    .clinic-intro-text-exact {
+        font-size: 0.85rem;
+    }
+
+    .clinic-services-grid-exact {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+        gap: 15px;
+    }
+
+    .clinic-service-item-exact {
+        padding: 15px;
+    }
+
+    .service-icon-container-exact {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    .service-icon-exact {
+        font-size: 1.8rem;
+    }
+
+    .clinic-service-item-exact h4 {
+        font-size: 0.95rem;
+    }
+
+    .clinic-service-item-exact p {
+        font-size: 0.75rem;
+    }
+}
+
+/* Very small mobile devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .tharlam-clinic-section-exact {
+        padding-bottom: 40px;
+    }
+
+    .clinic-hero-banner {
+        padding: 20px 8px;
+        margin-bottom: 25px;
+    }
+
+    .clinic-hero-title {
+        font-size: 1.5rem;
+    }
+
+    .clinic-intro-block-exact {
+        margin-bottom: 25px;
+    }
+
+    .clinic-sub-heading {
+        font-size: 1.2rem;
+    }
+
+    .clinic-intro-text-exact {
+        font-size: 0.8rem;
+    }
+
+    .clinic-service-item-exact {
+        padding: 12px;
+    }
+
+    .service-icon-container-exact {
+        width: 45px;
+        height: 45px;
+    }
+
+    .service-icon-exact {
+        font-size: 1.6rem;
+    }
+
+    .clinic-service-item-exact h4 {
+        font-size: 0.9rem;
+    }
+
+    .clinic-service-item-exact p {
+        font-size: 0.7rem;
+    }
+}

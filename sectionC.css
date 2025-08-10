@@ -1,0 +1,1276 @@
+/* --- Gallery Section Styles (Circular Collage, Constrained Width) --- */
+.gallery-hero-section.constrained-width {
+    padding: 10px 20px;
+    /* Vertical padding, horizontal padding for inner container */
+    background-color: #ffffff;
+    /* Clean white background */
+    color: #333;
+    overflow: hidden;
+    /* Crucial for containing floating elements and AOS */
+    position: relative;
+    display: flex;
+    /* Use flex to center the inner container */
+    flex-direction: column;
+    /* Stack content vertically */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    min-height: 200px;
+    /* Minimum height for the overall section */
+}
+
+.gallery-inner-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows content to wrap on smaller screens */
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    /* Set max-width for the content */
+    width: 100%;
+    /* Ensure it takes full width up to max-width */
+    margin: 0 auto;
+    /* Center the container */
+    padding: 0 20px;
+    /* Inner padding to prevent content from touching edges */
+}
+
+.gallery-content-area {
+    flex: 1;
+    /* Takes available space */
+    max-width: 550px;
+    /* Limit content width */
+    text-align: left;
+    padding-right: 40px;
+    /* Space between text and images */
+    z-index: 2;
+    /* Ensure text is above image collage */
+}
+
+.gallery-main-title {
+    font-size: 3.8rem;
+    /* Large, prominent title */
+    font-weight: 900;
+    line-height: 1.1;
+    color: #001f3f;
+    /* Dark blue */
+    margin-bottom: 20px;
+}
+
+.gallery-main-title .highlight-blue {
+    color: #001f3f;
+    /* Your existing highlight blue */
+}
+
+.gallery-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 35px;
+}
+
+/* New container for the button for better mobile control */
+.gallery-button-container {
+    margin-top: 0px;
+    /* Space above the button */
+    text-align: center;
+    width: 100%;
+    /* Ensure it takes full width for centering */
+    z-index: 2;
+    /* Ensure button is above any background elements */
+}
+
+.gallery-action-btn {
+    display: inline-block;
+    padding: 14px 35px;
+    background-color: #001f3f;
+    /* Light teal/green from the image */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    /* Very rounded button */
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(128, 203, 196, 0.4);
+    /* Subtle shadow */
+}
+
+.gallery-action-btn:hover {
+    background-color: black;
+    /* Slightly darker blue/green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(100, 181, 246, 0.5);
+}
+
+.gallery-image-collage {
+    flex: 1;
+    /* Takes available space */
+    position: relative;
+    min-height: 350px;
+    /* Adjusted height for desktop with smaller circles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    /* Behind text content */
+    overflow: hidden;
+    /* Crucial for containing absolutely positioned children */
+}
+
+/* Common styles for all circular elements (images and text) */
+.image-circle,
+.text-circle-students {
+    /* text-circle-students now inherits image-circle properties */
+    position: absolute;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    /* Soft shadow for circles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #ffffff;
+    /* White border for all circles */
+}
+
+.image-circle img,
+.text-circle-students img {
+    /* Apply image fit to both types of circles */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    /* Explicitly set object-position */
+    display: block;
+}
+
+/* Specific styles for the Main Building Image Circle */
+.main-circle {
+    width: 250px;
+    /* Smaller size for desktop */
+    height: 250px;
+    z-index: 3;
+    /* Main image on top */
+    top: 10%;
+    /* Centered vertically in collage */
+    left: 20%;
+    /* Centered horizontally in collage */
+    transform: translate(-50%, -50%);
+    /* Ensures perfect centering */
+}
+
+/* Specific styles for the Yellow Students Image Circle (formerly text) */
+.text-circle-students {
+    width: 150px;
+    /* Smaller size for desktop */
+    height: 150px;
+    background-color: #FFC107;
+    /* Yellow background from screenshot */
+    z-index: 4;
+    /* On top of main image, as in screenshot */
+    top:5%;
+    /* Position above main circle */
+    left: 50%;
+    /* Position to the right */
+    transform: translate(-50%, -50%);
+    /* Removed text-specific styles like color, font-weight, font-size, text-align, padding, h4 */
+}
+
+
+/* Abstract background circles */
+.abstract-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: 0;
+    /* Behind all images and text circles */
+}
+
+.circle-1 {
+    /* Light blue background behind main circle (top-left) */
+    width: 150px;
+    /* Smaller size for desktop */
+    height: 150px;
+    background-color: rgba(0, 123, 255, 0.1);
+    /* Light blue from screenshot */
+    top: 10%;
+    /* Adjusted to be higher */
+    left: 10%;
+    /* Adjusted to be more left */
+}
+
+.circle-2 {
+    /* Light teal background behind main circle (bottom-right) */
+    width: 200px;
+    /* Smaller size for desktop */
+    height: 200px;
+    background-color: rgba(128, 203, 196, 0.2);
+    /* Light teal from screenshot */
+    bottom: 10%;
+    right: 20%;
+}
+
+.circle-3 {
+    /* Smallest light yellow dot from screenshot */
+    width: 80px;
+    /* Smaller size for desktop */
+    height: 80px;
+    background-color:  rgba(128, 203, 196, 0.2);
+    /* Very light yellow */
+    top: 70%;
+    left: 10%;
+}
+
+
+/* --- Responsive Adjustments for Gallery Section (MOBILE STYLES - UNCHANGED) --- */
+
+@media (max-width: 992px) {
+    .gallery-hero-section.constrained-width {
+        padding: 60px 15px;
+        min-height: auto;
+    }
+
+    .gallery-inner-container {
+        flex-direction: column;
+        /* Stack content and images vertically */
+        padding: 0;
+    }
+
+    .gallery-content-area {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 50px;
+        max-width: 100%;
+    }
+
+    .gallery-main-title {
+        font-size: 3rem;
+    }
+
+    .gallery-description {
+        font-size: 1rem;
+    }
+
+    .gallery-image-collage {
+        min-height: 480px;
+        /* Maintain sufficient height for tablets */
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .main-circle {
+        width: 280px;
+        height: 280px;
+        top: 40%;
+        left: 30%;
+        transform: translate(-50%, -50%);
+    }
+
+    .text-circle-students {
+        /* Adjusted for tablet */
+        width: 150px;
+        height: 150px;
+        top: 15%;
+        left: 75%;
+        transform: translate(-50%, -50%);
+        /* Re-add text styles for mobile if needed, or keep it image-only */
+    }
+
+    .abstract-circle.circle-1 {
+        width: 150px;
+        height: 150px;
+        top: 10%;
+        left: 10%;
+    }
+
+    .abstract-circle.circle-2 {
+        width: 200px;
+        height: 200px;
+        bottom: 10%;
+        right: 5%;
+    }
+
+    .abstract-circle.circle-3 {
+        width: 80px;
+        height: 80px;
+        top: 60%;
+        left: 10%;
+    }
+
+    .gallery-button-container {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-hero-section.constrained-width {
+        padding: 50px 15px;
+    }
+
+    .gallery-content-area {
+        margin-bottom: 30px;
+    }
+
+    .gallery-main-title {
+        font-size: 2.5rem;
+    }
+
+    .gallery-description {
+        font-size: 0.95rem;
+    }
+
+    .gallery-image-collage {
+        min-height: 420px;
+    }
+
+    .main-circle {
+        width: 220px;
+        height: 220px;
+        top: 40%;
+        left: 30%;
+    }
+
+    .text-circle-students {
+        /* Adjusted for mobile */
+        width: 120px;
+        height: 120px;
+        top: 10%;
+        left: 70%;
+        /* Re-add text styles for mobile if needed, or keep it image-only */
+    }
+
+    .abstract-circle.circle-1 {
+        width: 120px;
+        height: 120px;
+        top: 8%;
+        left: 8%;
+    }
+
+    .abstract-circle.circle-2 {
+        width: 180px;
+        height: 180px;
+        bottom: 15%;
+        right: 8%;
+    }
+
+    .abstract-circle.circle-3 {
+        width: 70px;
+        height: 70px;
+        top: 55%;
+        left: 8%;
+    }
+
+    .gallery-button-container {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-hero-section.constrained-width {
+        padding: 40px 10px;
+    }
+
+    .gallery-content-area {
+        margin-bottom: 25px;
+    }
+
+    .gallery-main-title {
+        font-size: 2rem;
+    }
+
+    .gallery-description {
+        font-size: 0.85rem;
+    }
+
+    .gallery-image-collage {
+        min-height: 380px;
+    }
+
+    .main-circle {
+        width: 180px;
+        height: 180px;
+        top: 40%;
+        left: 30%;
+    }
+
+    .text-circle-students {
+        /* Adjusted for smallest mobile */
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        left: 60%;
+        /* Re-add text styles for mobile if needed, or keep it image-only */
+    }
+
+    .abstract-circle.circle-1 {
+        width: 100px;
+        height: 100px;
+        top: 10%;
+        left: 5%;
+    }
+
+    .abstract-circle.circle-2 {
+        width: 60px;
+        height: 60px;
+        bottom: 10%;
+        right: 5%;
+    }
+
+    .abstract-circle.circle-3 {
+        width: 150px;
+        height: 150px;
+        top: 50%;
+        left: 5%;
+    }
+
+    .gallery-button-container {
+        margin-top: 25px;
+    }
+}
+
+
+/*section of support */
+/* --- Support Section Styles (Donations & Financial Support - Flexbox Layout, No Shadow, White Background) --- */
+.support-section {
+    padding: 20px 20px;
+    background-color: #f0f8ff; /* Changed outer section background to light blue for contrast */
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+}
+
+.support-flex-container {
+    max-width: 1200px; /* Max width for the flex container */
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff; /* Changed to white as requested */
+    border-radius: 12px;
+    border: 1px solid #e0e0e0; /* Subtle light gray border (kept as it defines the box) */
+    /* Removed box-shadow and transform properties */
+    transition: none; /* Ensure no transition from previous hover effects */
+
+    display: flex; /* Enable flexbox */
+    gap: 40px; /* Space between columns */
+    align-items: flex-start; /* Align items to the top */
+    text-align: left; /* Reset text alignment for columns */
+}
+
+/* Removed :hover styles for transform and box-shadow */
+
+
+.support-text-column {
+    flex: 2; /* Takes more space, e.g., 2/3 of the available space */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+.support-cta-column {
+    flex: 1; /* Takes less space, e.g., 1/3 of the available space */
+    min-width: 250px; /* Minimum width before wrapping */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically in its column */
+    align-items: center; /* Center content horizontally in its column */
+    text-align: center; /* Center text within this column */
+}
+
+.support-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px; /* Space between paragraphs */
+}
+
+.support-description:last-of-type {
+    margin-bottom: 0; /* Remove bottom margin if it's the last paragraph in its column */
+}
+
+.support-cta-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 30px; /* Space before the button */
+}
+
+.support-button-wrapper {
+    margin-top: 0; /* Reset margin as flexbox handles spacing */
+}
+
+.support-contact-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #007bff; /* Primary blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px; /* Very rounded button */
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Blue shadow */
+}
+
+.support-contact-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+}
+
+
+/* --- Responsive Adjustments for Support Section --- */
+
+@media (max-width: 992px) {
+    .support-section {
+        padding: 60px 15px;
+    }
+    .support-flex-container {
+        padding: 25px;
+        flex-direction: column; /* Stack columns vertically on tablets */
+        gap: 30px; /* Adjust gap for stacked columns */
+    }
+    .support-text-column,
+    .support-cta-column {
+        flex: none; /* Remove flex sizing */
+        width: 100%; /* Take full width */
+        min-width: auto; /* Remove min-width constraint */
+        text-align: left; /* Center text when stacked */
+    }
+    .support-description {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    .support-cta-text {
+        font-size: 0.95rem;
+        margin-bottom: 25px;
+    }
+    .support-contact-btn {
+        padding: 12px 35px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .support-section {
+        padding: 50px 10px;
+    }
+    .support-flex-container {
+        padding: 20px;
+        gap: 25px;
+    }
+    .support-description {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
+    .support-cta-text {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    .support-contact-btn {
+        padding: 10px 30px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .support-section {
+        padding: 40px 10px;
+    }
+    .support-flex-container {
+        padding: 15px;
+        gap: 20px;
+    }
+    .support-description {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    .support-cta-text {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    .support-contact-btn {
+        padding: 8px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+/*section*/
+/* Universal box-sizing for consistency */
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+
+/*the section of events*/
+
+/* --- FAQ Section Styles (Image on Left, Collapsible Accordion on Right - Support-like Box) --- */
+.faq-section {
+    padding: 40px 20px;
+    background-color: #ffffff; /* Changed outer section background to white for contrast with the inner light blue box */
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+}
+
+.faq-content-wrapper {
+    max-width: 1200px; /* Max width for the entire content wrapper */
+    margin: 0 auto;
+    padding: 30px; /* Internal padding for the main box */
+    
+    /* NEW: Box appearance for the entire content wrapper, like support-flex-container */
+    background-color: white; /* Light blue background for the content box */
+    border-radius: 12px; /* Rounded corners */
+    border: 1px solid #e0e0e0; /* Subtle light gray border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle shadow for the box */
+
+    display: flex; /* Enable flexbox for side-by-side layout */
+    gap: 50px; /* Space between image and accordion */
+    align-items: flex-start; /* Align items to the top */
+    text-align: left; /* Reset text alignment for columns */
+}
+
+.faq-image-column {
+    flex: 1; /* Takes one part of the available space */
+    min-width: 300px; /* Minimum width for the image column */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align image to top */
+    
+    padding: 0; /* No internal padding here, it's on the wrapper */
+    box-shadow: none; /* No shadow on this column */
+    border: none; /* No border on this column */
+    background-color: transparent; /* No background on this column */
+}
+
+.faq-image-column img {
+    max-width: 100%; /* Ensure image fits within its column */
+    height: auto;
+    border-radius: 8px; /* Rounded corners for the image itself */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow for the image itself */
+    display: block; /* Remove extra space below image */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out; /* NEW: Transition for hover effects */
+}
+
+.faq-image-column img:hover {
+    transform: translateY(-8px) scale(1.02); /* NEW: Lift and slightly scale on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* NEW: More pronounced shadow on hover */
+}
+
+.faq-accordion-container {
+    flex: 2; /* Takes two parts of the available space (accordion is wider) */
+    min-width: 400px; /* Minimum width for the accordion column */
+    
+    background-color: transparent; /* No background on this container, blends with wrapper */
+    border-radius: 0; /* No border-radius here */
+    box-shadow: none; /* No shadow here */
+    padding: 0; /* No internal padding here, it's handled by faq-item */
+}
+
+.faq-item {
+    background-color: white; /* Individual FAQ item background */
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow for each FAQ item */
+    margin-bottom: 20px; /* Space between FAQ items */
+    overflow: hidden; /* Important for smooth collapse */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease; /* NEW: Added border-color transition */
+    border: 1px solid transparent; /* NEW: Start with transparent border */
+}
+
+.faq-item:last-child {
+    margin-bottom: 0; /* No bottom margin for the last item */
+}
+
+.faq-item.active {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow when active */
+    border-color: #001f3f; /* NEW: Blue border when active */
+    background-color: white; /* Ensure background stays white */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0; /* Separator line */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for pseudo-elements or more complex effects */
+    z-index: 1; /* Keep question above answer if using complex layering */
+    outline: none; /* REMOVED: Removes the default browser focus outline (the "blink") */
+}
+
+/* ADDED: Visual indicator for keyboard focus */
+.faq-question:focus {
+    box-shadow: white; /* Blue glow around focused item */
+    background-color: #f9f9f9; /* Keep hover background */
+    transform: translateY(-1px); /* Keep subtle lift */
+}
+
+
+/* Remove default border-bottom for the last FAQ question within its item, but keep it for active state */
+.faq-item:not(.active):last-child .faq-question {
+    border-bottom: none;
+    color: white;
+}
+/* When active, the border-bottom will show */
+
+
+.faq-question:hover {
+    background-color: #f9f9f9; /* Light hover effect */
+    transform: translateY(-3px); /* Subtle lift on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Subtle shadow on hover for just the question part */
+}
+
+.faq-question h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #001f3f;
+    margin: 0;
+    flex-grow: 1; /* Allows title to take available space */
+    text-align: left;
+}
+
+.faq-icon {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #001f3f; /* Blue icon */
+    margin-left: 20px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Rotate '+' to 'x' when active */
+    color: #001f3f; /* Red color for 'x' icon */
+}
+
+.faq-answer {
+    padding: 0 30px; /* Horizontal padding */
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out, opacity 0.4s ease, transform 0.5s ease-out;
+    background-color: white; /* Slightly different background for answer */
+    opacity: 0; /* Start hidden */
+    transform: translateY(-10px); /* Start slightly above */
+    height: auto !important; /* Explicitly ensure height is auto */
+    min-height: auto !important; /* Explicitly ensure min-height is auto */
+    will-change: max-height, padding, opacity, transform; /* Hint browser for performance */
+}
+
+.faq-item.active .faq-answer {
+    max-height: 3000px; /* Ample max height for content */
+    padding-top: 0px; /* IMPORTANT FIX: No top padding to prevent clipping */
+    padding-bottom: 30px;
+    opacity: 1; /* Fade in */
+    transform: translateY(0); /* Slide into place */
+}
+
+.faq-answer p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+/* --- Responsive Adjustments for FAQ Section --- */
+
+@media (max-width: 992px) {
+    .faq-section {
+        padding: 60px 15px;
+    }
+    .faq-content-wrapper {
+        flex-direction: column; /* Stack columns vertically on tablets */
+        gap: 30px;
+        padding: 25px; /* Adjust padding for the main wrapper on tablet */
+    }
+    .faq-image-column {
+        min-width: auto; /* Remove min-width constraint */
+        width: 100%; /* Take full width */
+        order: 2; /* Move image below accordion on tablet/mobile */
+    }
+    .faq-image-column img {
+        max-width: 80%; /* Adjust image size when stacked */
+        transform: none; /* Disable hover effect on small screens to avoid layout issues */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Reset shadow to default */
+    }
+    .faq-accordion-container {
+        min-width: auto; /* Remove min-width constraint */
+        width: 100%; /* Take full width */
+        order: 1; /* Move accordion above image on tablet/mobile */
+    }
+    .faq-question {
+        padding: 18px 25px;
+        transform: none; /* Disable hover effect on small screens */
+        box-shadow: none; /* Disable hover effect on small screens */
+    }
+    .faq-question:focus { /* Focus style for small screens, match hover */
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); 
+        background-color: #f9f9f9; 
+    }
+    .faq-question h3 {
+        font-size: 1.15rem;
+    }
+    .faq-icon {
+        font-size: 1.6rem;
+        margin-left: 15px;
+    }
+    .faq-answer {
+        padding: 0 25px;
+    }
+    .faq-item.active .faq-answer {
+        padding-top: 0px; /* Adjusted for smaller screens */
+        padding-bottom: 25px;
+    }
+    .faq-answer p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-section {
+        padding: 50px 10px;
+    }
+    .faq-content-wrapper {
+        padding: 20px; /* Adjust padding for the main wrapper on mobile */
+        gap: 25px;
+    }
+    .faq-image-column img {
+        max-width: 90%; /* Adjust image size for smaller tablets */
+    }
+    .faq-question {
+        padding: 15px 20px;
+    }
+    .faq-question h3 {
+        font-size: 1.05rem;
+    }
+    .faq-icon {
+        font-size: 1.4rem;
+        margin-left: 10px;
+    }
+    .faq-answer {
+        padding: 0 20px;
+    }
+    .faq-item.active .faq-answer {
+        padding-top: 0px; /* Adjusted for smaller screens */
+        padding-bottom: 20px;
+    }
+    .faq-answer p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-image-column img {
+        max-width: 100%; /* Full width on smallest screens */
+    }
+    .faq-question {
+        padding: 12px 15px;
+    }
+    .faq-question h3 {
+        font-size: 1rem;
+    }
+    .faq-icon {
+        font-size: 1.2rem;
+        margin-left: 8px;
+    }
+    .faq-answer {
+        padding: 0 15px;
+    }
+    .faq-item.active .faq-answer {
+        padding-top: 0px; /* Adjusted for smallest screens */
+        padding-bottom: 15px;
+    }
+    .faq-answer p {
+        font-size: 0.85rem;
+    }
+}
+
+/*section of contack*/
+/* --- Contact Us Section Styles (Redesigned to match image) --- */
+.contact-section {
+    padding: 40px 20px;
+    background-color: #e0f2f7; /* Light blue background as per image */
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+}
+
+.contact-content-wrapper {
+    max-width: 1200px; /* Max width for the entire content wrapper */
+    margin: 0 auto;
+    display: flex; /* Enable flexbox for side-by-side layout */
+    border-radius: 12px; /* Rounded corners for the whole wrapper */
+    overflow: hidden; /* Ensures inner elements respect border-radius */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Subtle shadow for the whole section */
+}
+
+.contact-left-column {
+    flex: 1; /* Takes one part of the available space */
+    padding: 60px 40px; /* Internal padding for the left column */
+    background-color: #e0f2f7; /* Same light blue as section background */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; /* Align text to left */
+    text-align: left;
+}
+
+.contact-main-heading {
+    font-size: 3.2rem; /* Large heading size */
+    font-weight: 800; /* Extra bold */
+    color: #001f3f; /* Dark blue */
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.contact-main-heading .highlight-blue {
+    color: #001f3f; /* Highlight color for part of the heading */
+}
+
+.contact-description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 500px; /* Constrain width for readability */
+}
+
+.contact-details-row {
+    /* Changed to stack items vertically */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 20px; /* Space between each detail item */
+    margin-bottom: 30px; /* Space below the entire list of details */
+    width: 100%; /* Take full width of its parent */
+}
+
+.contact-detail-item {
+    display: flex; /* Keep flex for icon-text alignment */
+    align-items: center; /* Vertically center icon and text */
+    /* Removed flex-basis and max-width as items will now stack */
+}
+
+.contact-detail-icon {
+    font-size: 1.4rem; /* Icon size */
+    color: #001f3f; /* Blue color for icons */
+    margin-right: 12px;
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    width: 25px; /* Give icons a fixed width for consistent alignment */
+    text-align: center; /* Center icon within its fixed width */
+}
+
+.contact-detail-text {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.contact-detail-text a {
+    color: #555; /* Link color same as text */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-detail-text a:hover {
+    color: #001f3f; /* Blue on hover */
+}
+
+.contact-detail-text strong {
+    color: #001f3f; /* Darker color for labels like "Office Hours" */
+}
+
+/* Removed .join-team-section and related styles as per request */
+
+
+/* --- Right Column: Contact Form --- */
+.contact-form-column {
+    flex: 1; /* Takes one part of the available space */
+    background-color: #001f3f; /* Dark blue background as per image */
+    padding: 60px 40px; /* Internal padding for the form column */
+    color: #ffffff; /* White text for labels and placeholders */
+}
+
+.contact-form-column .form-title {
+    color: #ffffff; /* White title for the form */
+    margin-bottom: 35px;
+}
+
+.contact-form .form-row {
+    display: flex;
+    gap: 20px; /* Space between fields in a row */
+    margin-bottom: 20px;
+}
+
+.contact-form .form-group {
+    flex: 1; /* Each group takes equal space in a row */
+    margin-bottom: 0; /* Reset margin as form-row handles it */
+    text-align: left;
+}
+
+.contact-form label {
+    color: #ffffff; /* White labels */
+    font-size: 0.95rem; /* Slightly smaller font for labels */
+    margin-bottom: 10px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #334e68; /* Darker border for inputs */
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333; /* Dark text inside inputs */
+    background-color: #ffffff; /* White background for inputs */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #888; /* Placeholder text color */
+    opacity: 1; /* Ensure placeholder is visible */
+}
+
+.contact-form select {
+    appearance: none; /* Remove default select arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #001f3f;
+    /* Changed fill color to #001f3f */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23001f3f%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13.2-6.4H18.2c-5%200-9.3%201.8-13.2%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2013.2l128%20127.9c3.9%203.9%208.7%205.8%2013.5%205.8s9.6-1.9%2013.5-5.8L287%2095.4c3.9-3.9%205.8-8.7%205.8-13.5%200-5-1.8-9.3-5.8-13.2z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 12px;
+    padding-right: 35px; /* Make space for the arrow */
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: #001f3f;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px; /* Slightly taller textarea */
+}
+
+.contact-form .submit-btn {
+    display: flex; /* Use flex for button content */
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    background-color: #001f3f; /* Primary blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 50px; /* Very rounded button */
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Blue shadow */
+    margin-top: 25px; /* Space above button */
+    min-width: 150px; /* Ensure button has decent width */
+}
+
+.contact-form .submit-btn .submit-arrow {
+    margin-left: 10px; /* Space between text and arrow */
+    font-size: 1rem; /* Size of the arrow icon */
+}
+
+.contact-form .submit-btn:hover {
+    background-color: black; /* Darker blue on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+}
+
+
+/* --- Responsive Adjustments for Contact Section --- */
+
+@media (max-width: 992px) {
+    .contact-section {
+        padding: 60px 0; /* Remove horizontal padding from section, wrapper has it */
+    }
+    .contact-content-wrapper {
+        flex-direction: column; /* Stack columns vertically on tablets */
+        border-radius: 0; /* Remove border-radius on wrapper for full width */
+        box-shadow: none; /* Remove shadow on wrapper */
+        padding: 0; /* Remove padding from wrapper, columns will have it */
+    }
+    .contact-left-column {
+        padding: 40px 25px; /* Adjust padding for tablet */
+        align-items: center; /* Center align items when stacked */
+        text-align: center; /* Center text when stacked */
+    }
+    .contact-main-heading {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    .contact-description {
+        font-size: 1.05rem;
+        margin-bottom: 30px;
+        max-width: 90%; /* Allow wider on tablet */
+    }
+    .contact-details-row {
+        gap: 15px; /* Adjust gap for stacked items on tablet */
+        align-items: left; /* Center align items */
+    }
+    .contact-detail-item {
+        justify-content: left; /* Center icon and text */
+    }
+    .contact-detail-icon {
+        font-size: 1.4rem;
+        margin-right: 10px;
+    }
+    .contact-detail-text {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    .contact-form-column {
+        padding: 40px 25px; /* Adjust padding for tablet */
+    }
+    .contact-form .form-row {
+        flex-direction: column; /* Stack form fields in rows */
+        gap: 0;
+        margin-bottom: 0;
+    }
+    .contact-form .form-group {
+        margin-bottom: 20px; /* Restore margin for stacked groups */
+    }
+    .contact-form label {
+        text-align: center; /* Center labels when stacked */
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select,
+    .contact-form textarea {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+    .contact-form textarea {
+        min-height: 100px;
+    }
+    .contact-form .submit-btn {
+        width: 100%; /* Full width button */
+        max-width: 250px; /* Max width for button */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        padding: 50px 0;
+    }
+    .contact-left-column {
+        padding: 30px 20px;
+    }
+    .contact-main-heading {
+        font-size: 2.2rem;
+    }
+    .contact-description {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    .contact-details-row {
+        gap: 12px;
+    }
+    .contact-detail-icon {
+        font-size: 1.3rem;
+        margin-right: 8px;
+    }
+    .contact-detail-text {
+        font-size: 0.95rem;
+    }
+    .contact-form-column {
+        padding: 30px 20px;
+    }
+    .contact-form .form-group {
+        margin-bottom: 15px;
+    }
+    .contact-form label {
+        font-size: 0.9rem;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select,
+    .contact-form textarea {
+        padding: 9px 10px;
+        font-size: 0.9rem;
+    }
+    .contact-form textarea {
+        min-height: 100px;
+    }
+    .contact-form .submit-btn {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 10px 0;
+    }
+    .contact-left-column {
+        padding: 25px 15px;
+    }
+    .contact-main-heading {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    .contact-description {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+    }
+    .contact-details-row {
+        gap: 10px;
+    }
+    .contact-detail-icon {
+        font-size: 1.2rem;
+        margin-right: 6px;
+    }
+    .contact-detail-text {
+        font-size: 0.9rem;
+    }
+    .contact-form-column {
+        padding: 25px 15px;
+    }
+    .contact-form .form-group {
+        margin-bottom: 12px;
+    }
+    .contact-form label {
+        font-size: 0.85rem;
+    }
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form input[type="tel"],
+    .contact-form select,
+    .contact-form textarea {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    .contact-form textarea {
+        min-height: 80px;
+    }
+    .contact-form .submit-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}

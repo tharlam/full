@@ -1,0 +1,1453 @@
+/* --- 0. Universal Box-Sizing & Basic Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0; /* Added margin: 0; to universal reset */
+    padding: 0; /* Added padding: 0; to universal reset */
+}
+
+/* --- 1. Global CSS Variables --- */
+/* These variables define your site's color palette and other common values.
+   They are placed in :root to be accessible globally. */
+:root {
+    /* Brand Colors */
+    --color-primary-dark: #001f3f;      /* Dark Blue (Header, Footer background, main headings) */
+    --color-accent-blue: #007bff;       /* Bright Blue (Links, buttons, active states) */
+    --color-accent-yellow: #ffc107;     /* Yellow (Highlight, hover states, accents) */
+    --color-accent-green: #28a745;      /* Green (Contact button) */
+    --color-green-hover: #218838;       /* Darker Green for hover */
+    --color-dark-blue-hover: #0056b3;   /* Darker Blue for hover */
+    --color-light-blue-bg: #1a3a5e;     /* Lighter Dark Blue (dropdown background, language select) */
+
+    /* Text Colors */
+    --color-text-dark: #333;            /* Dark Grey (General body text) */
+    --color-text-medium: #555;          /* Medium Grey (Secondary text, paragraphs) */
+    --color-text-light: #fefefe;        /* Off-white (Modal background) */
+    --color-text-white: #ffffff;        /* Pure white */
+    --color-text-fade: #aaa;            /* Faded grey for close button */
+
+    /* Backgrounds */
+    --color-bg-light-grey: #eee;        /* Light Grey (Slider fallback, general background) */
+    --color-bg-dark-overlay: rgba(0, 0, 0, 0.6); /* Dark overlay for banners/modals */
+    --color-bg-light-overlay: rgba(0, 0, 0, 0.4); /* Lighter overlay for buttons */
+
+    /* Borders & Shadows */
+    --border-light-blue: #336699;       /* Border for language select */
+    --shadow-light: rgba(0, 0, 0, 0.1); /* Light shadow */
+    --shadow-medium: rgba(0, 0, 0, 0.2); /* Medium shadow */
+    --shadow-dark: rgba(0, 0, 0, 0.2);   /* Dark shadow (for dropdown) */
+
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 8px;
+    --spacing-md: 10px;
+    --spacing-lg: 15px;
+    --spacing-xl: 20px;
+    --spacing-xxl: 30px;
+    --spacing-xxxl: 60px;
+}
+
+/* --- 2. General Body & Root Styles --- */
+html {
+    scroll-behavior: smooth; /* Ensures smooth scrolling for anchor links */
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Poppins will be used for headings from about.css */
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-dark);
+    overflow-x: hidden; /* Ensure no horizontal scrolling */
+}
+
+body.no-scroll {
+    overflow: hidden; /* Prevent background scrolling when modals/mobile menu open */
+}
+
+/* Base font sizes for larger screens, adjusted later for mobile */
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2.5em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+p {
+    font-size: 1em;
+}
+
+
+/* --- Reusable Section Headers - Base for main page titles --- */
+/* Note: 'main-section-title' is for top-level page headings, 'section-header' for within sections */
+.section-header,
+.main-section-title {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xxxl) auto; /* Consistent bottom margin */
+    padding: 0 var(--spacing-xl); /* Horizontal padding for content inside max-width */
+    text-align: center;
+}
+
+.section-header h2,
+.main-section-title h1 {
+    font-size: 3rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.section-header h2::after,
+.main-section-title h1::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 120px;
+    height: 5px;
+    border-radius: 3px;
+}
+
+.section-header p,
+.main-section-title p {
+    font-size: 1.2rem;
+    color: var(--color-text-medium);
+    line-height: 1.7;
+}
+
+
+/* --- Main Header Section Styles --- */
+.main-header {
+    background-color: var(--color-primary-dark);
+    padding: 5px var(--spacing-xl);
+    box-shadow: 0 4px 15px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%; /* Ensure navbar takes full width of its parent */
+    min-height: 65px;
+}
+
+/* Brand/Logo Styling */
+.brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease;
+}
+
+.header-logo-link:hover {
+    transform: scale(1.02);
+}
+
+.brand .logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 6px;
+    margin-right: var(--spacing-md);
+}
+
+.brand .text-group {
+    text-align: left;
+    white-space: nowrap;
+    color: var(--color-text-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40px;
+}
+
+.brand .text-group h2 {
+    /* Using Playfair Display for the brand name for elegance */
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.brand .text-group p {
+    font-size: 0.75rem;
+    margin: 0;
+    opacity: 0.8;
+}
+
+
+/* Mobile Tools (Language Selector & Toggle) */
+.mobile-tools {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Language Selector Styling */
+.language-selector-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.language-select {
+    background-color: var(--color-light-blue-bg);
+    color: var(--color-text-white);
+    padding: 7px 28px 7px 10px;
+    border: 1px solid var(--border-light-blue);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-select:hover,
+.language-select:focus {
+    border-color: var(--color-accent-blue);
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.custom-select-arrow {
+    position: absolute;
+    right: var(--spacing-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-white);
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+/* Mobile Menu Toggle Button (Hamburger) */
+.menu-toggle {
+    display: none;
+    width: 28px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    padding: 0;
+    outline: none;
+}
+
+.menu-toggle .icon-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-text-white);
+    border-radius: 1px;
+    margin-bottom: var(--spacing-xs);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-toggle .icon-bar:last-child {
+    margin-bottom: 0;
+}
+
+/* Hamburger Animation (X icon) */
+.menu-toggle.active .icon-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .icon-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.active .icon-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* Navigation Controls (Desktop) */
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.nav-controls ul.nav-links-list {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xl);
+}
+
+.nav-controls .nav-links-list li a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 6px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-controls .nav-links-list li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent-yellow);
+    transition: width 0.3s ease;
+}
+
+.nav-controls .nav-links-list li a:hover::after,
+.nav-controls .nav-links-list li a:focus::after {
+    width: 100%;
+}
+
+.nav-controls .nav-links-list li a:hover,
+.nav-controls .nav-links-list li a:focus {
+    color: var(--color-accent-yellow);
+    outline: none;
+}
+
+/* Dropdown Menu Styling */
+.nav-controls .dropdown {
+    position: relative;
+}
+
+.nav-controls .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.nav-controls .dropdown-toggle .fa-caret-down {
+    font-size: 0.7em;
+    transition: transform 0.3s ease;
+}
+
+.nav-controls .dropdown.show .dropdown-toggle .fa-caret-down {
+    transform: rotate(180deg);
+}
+
+.nav-controls .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    background-color: var(--color-light-blue-bg);
+    min-width: 160px;
+    box-shadow: 0 6px 15px var(--shadow-dark);
+    border-radius: 6px;
+    overflow: hidden;
+    list-style: none;
+    padding: var(--spacing-sm) 0;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.nav-controls .dropdown.show .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-controls .dropdown-menu li a {
+    color: var(--color-text-white);
+    padding: var(--spacing-sm) 18px;
+    text-decoration: none;
+    display: block;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-controls .dropdown-menu li a:hover,
+.nav-controls .dropdown-menu li a:focus {
+    background-color: var(--color-accent-blue);
+    color: var(--color-text-white);
+    outline: none;
+}
+
+/* Contact button in nav */
+.nav-controls .nav-contact-link {
+    background-color: var(--color-accent-green);
+    padding: 7px 14px;
+    border-radius: var(--spacing-xs);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    color: var(--color-text-white);
+}
+
+.nav-controls .nav-contact-link:hover {
+    background-color: var(--color-green-hover);
+    transform: translateY(-1px);
+}
+
+
+/* --- Banner Slider Styles --- */
+.banner-slider {
+    position: relative;
+    width: 100%;
+    height: 550px; /* Adjusted height for desktop as seen in screenshot */
+    overflow: hidden;
+    background-color: var(--color-bg-light-grey); /* Fallback background */
+}
+
+.banner-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.banner-slider .slide.active {
+    opacity: 1;
+}
+
+.banner-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area, cropping if necessary */
+    object-position: center; /* Centers the image within its bounds */
+}
+
+/* New: Slide Caption Styling */
+.slide-caption {
+    position: absolute;
+    bottom: var(--spacing-xxl); /* Aligned to the bottom of the slide */
+    left: 50%;
+    transform: translateX(-50%); /* Centered horizontally */
+    width: 100%; /* Spans full width of the slide */
+    padding: var(--spacing-xl) 40px; /* Internal padding */
+    background-color: var(--color-bg-dark-overlay); /* Dark translucent background for readability */
+    color: var(--color-text-white);
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    white-space: nowrap; /* Prevent text wrapping */
+    overflow: hidden; /* Hide overflow if text is too long */
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    max-width: 800px; /* Limit width of the caption area on large screens */
+}
+
+.slide-caption h3 {
+    margin: 0;
+    font-size: 1.6rem; /* Size for the caption text */
+    font-weight: 600;
+}
+
+
+/* Navigation Buttons Styling (positioned over the image) */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--color-bg-light-overlay); /* Slightly translucent black */
+    color: var(--color-text-white);
+    border: none;
+    padding: 15px 10px; /* Vertical padding larger than horizontal for arrows */
+    cursor: pointer;
+    z-index: 100; /* Ensure buttons are above slides */
+    border-radius: 4px; /* Slight rounding */
+    font-size: 2.5rem; /* Larger arrows for visibility */
+    display: flex; /* To center arrow text */
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+    background-color: var(--color-bg-dark-overlay); /* Darker on hover */
+    transform: translateY(-50%) scale(1.05); /* Slight scale up on hover */
+}
+
+.prev-btn {
+    left: var(--spacing-xl); /* Positioned 20px from left edge */
+    padding-left: 15px; /* Adjust padding for arrow shape */
+}
+
+.next-btn {
+    right: var(--spacing-xl); /* Positioned 20px from right edge */
+    padding-right: 15px; /* Adjust padding for arrow shape */
+}
+
+
+/* --- Footer Section --- */
+.footer-section {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-white);
+    padding: 50px var(--spacing-xl) var(--spacing-xl) var(--spacing-xl);
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-xxl) auto;
+    gap: 25px;
+    /* Ensure padding doesn't cause overflow on smaller screens */
+    padding: 0 var(--spacing-md); /* Added horizontal padding to contain content */
+}
+
+.footer-about,
+.footer-links,
+.footer-contact,
+.footer-newsletter {
+    flex: 1 1 calc(25% - 25px);
+    min-width: 200px;
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-contact h3,
+.footer-newsletter h3 {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-accent-yellow);
+    position: relative;
+    padding-bottom: 6px;
+}
+
+.footer-about h3::after,
+.footer-links h3::after,
+.footer-contact h3::after,
+.footer-newsletter h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--color-accent-blue);
+}
+
+.footer-about p {
+    line-height: 1.5;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.9;
+    font-size: 0.85rem;
+}
+
+.social-icons a {
+    color: var(--color-text-white);
+    font-size: 1.3rem;
+    margin-right: 12px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--color-accent-blue);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-links ul li a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, color 0.3s ease;
+    font-size: 0.85rem;
+}
+
+.footer-links ul li a:hover {
+    opacity: 1;
+    color: var(--color-accent-blue);
+}
+
+.footer-contact p {
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    opacity: 0.9;
+    font-size: 0.85rem;
+}
+
+.footer-contact p i {
+    color: var(--color-accent-yellow);
+    font-size: 1rem;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-top: 12px;
+}
+
+.newsletter-form input {
+    flex-grow: 1;
+    padding: 9px var(--spacing-md);
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 0.85rem;
+}
+
+.newsletter-form button {
+    background-color: var(--color-accent-blue);
+    color: var(--color-text-white);
+    border: none;
+    padding: 9px 12px;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: var(--color-dark-blue-hover);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--spacing-lg);
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.footer-bottom p {
+    margin: 4px 0;
+}
+
+.footer-bottom a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    margin: 0 6px;
+    transition: opacity 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    opacity: 1;
+}
+
+/* --- Scroll-to-top button --- */
+#scrollTopBtn {
+    position: fixed;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-xl);
+    background-color: #001f3f;
+    color: var(--color-text-white);
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 3px 8px var(--shadow-medium);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+#scrollTopBtn.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* --- Modal Styling --- */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top (higher than navbar, etc.) */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: var(--color-bg-dark-overlay); /* Black w/ opacity - backdrop */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: var(--spacing-xl); /* Padding for mobile safety */
+    box-sizing: border-box; /* Include padding in dimensions */
+    opacity: 0; /* Start hidden for animation */
+    transition: opacity 0.3s ease; /* Fade in animation */
+}
+
+.modal.active-modal {
+    display: flex; /* Use flex to center content */
+    opacity: 1; /* Show with fade in */
+}
+
+.modal-content {
+    background-color: var(--color-text-light); /* White background for modal content */
+    margin: auto; /* Center modal content */
+    padding: var(--spacing-xxl);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    position: relative;
+    max-width: 700px; /* Max width for content */
+    width: 100%; /* Full width up to max-width */
+    animation: zoomIn 0.3s ease-out; /* Pop-in animation */
+    transform: scale(0.95); /* Start slightly smaller for zoom effect */
+    opacity: 0; /* Start hidden for zoom effect */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.modal.active-modal .modal-content {
+    transform: scale(1); /* Zoom to full size */
+    opacity: 1; /* Fade in */
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Close button for modals */
+.close-button {
+    color: var(--color-text-fade);
+    position: absolute;
+    top: var(--spacing-lg);
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--color-text-dark);
+    text-decoration: none;
+}
+
+/* Modal content specific styling */
+.modal-content h3 {
+    font-size: 2.2rem;
+    color: var(--color-primary-dark);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+    position: relative;
+    padding-bottom: var(--spacing-md);
+}
+
+.modal-content h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-accent-yellow);
+    border-radius: 2px;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-medium);
+    margin-bottom: var(--spacing-lg);
+}
+
+.modal-content ul {
+    list-style: disc;
+    margin-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    padding: 0;
+    color: var(--color-text-medium);
+}
+
+.modal-content ul li {
+    margin-bottom: var(--spacing-sm);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.modal-content ul li strong {
+    color: var(--color-text-dark);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: var(--spacing-xxl);
+}
+
+.modal-close-btn {
+    background-color: var(--color-accent-blue);
+    color: var(--color-text-white);
+    border: none;
+    padding: 10px var(--spacing-xl);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background-color: var(--color-dark-blue-hover);
+    transform: translateY(-2px);
+}
+
+
+/* --- Responsive Adjustments for Main Components --- */
+
+/* Tablet and smaller desktop */
+@media (max-width: 992px) {
+    /* Global Section Header Adjustments */
+    .section-header h2,
+    .main-section-title h1 {
+        font-size: 1.5rem;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-md);
+    }
+
+    .section-header h2::after,
+    .main-section-title h1::after {
+        width: 100px;
+        height: 4px;
+    }
+
+    .section-header p,
+    .main-section-title p {
+        font-size: 1.1rem;
+    }
+
+    /* Header Specific */
+    .main-header {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .navbar {
+        min-height: 60px;
+    }
+
+    .brand .logo {
+        height: 35px;
+        margin-right: 6px;
+    }
+
+    .brand .text-group h2 {
+        font-size: 1.25rem;
+    }
+
+    .brand .text-group p {
+        font-size: 0.7rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-controls {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 280px;
+        height: 100vh;
+        background-color: var(--color-primary-dark);
+        box-shadow: -5px 0 15px var(--shadow-medium);
+        transition: right 0.4s ease-in-out;
+        z-index: 999;
+        padding-top: 70px;
+        overflow-y: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    .nav-controls.show {
+        right: 0;
+    }
+
+    .nav-controls ul.nav-links-list {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: var(--spacing-md);
+    }
+
+    .nav-controls .nav-links-list li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-controls .nav-links-list li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-controls .nav-links-list li a {
+        padding: 12px 18px;
+        font-size: 1.05rem;
+        width: 100%;
+    }
+
+    .nav-controls .nav-links-list li a::after {
+        display: none;
+    }
+
+    .nav-controls .nav-links-list li a:hover,
+    .nav-controls .nav-links-list li a:focus {
+        background-color: rgba(0, 123, 255, 0.15);
+        color: var(--color-accent-yellow);
+    }
+
+    .nav-controls .dropdown-menu {
+        position: static;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-shadow: none;
+        border-radius: 0;
+        min-width: unset;
+        padding: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        transform: translateY(0);
+    }
+
+    .nav-controls .dropdown.show .dropdown-menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-controls .dropdown-menu li a {
+        padding: var(--spacing-sm) 25px;
+        font-size: 0.95rem;
+    }
+
+    .nav-controls .dropdown-menu li a:hover,
+    .nav-controls .dropdown-menu li a:focus {
+        background-color: rgba(0, 123, 255, 0.25);
+    }
+
+    /* Contact button in nav */
+    .nav-controls .nav-contact-link {
+        width: calc(100% - 36px);
+        text-align: center;
+        margin: 18px auto;
+        font-size: 1rem;
+        padding: 10px var(--spacing-lg);
+    }
+
+    body.no-scroll::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        display: block;
+    }
+
+    /* Banner Slider */
+    .banner-slider {
+        height: 450px; /* Adjust height for tablets */
+    }
+
+    .slide-caption {
+        padding: var(--spacing-lg) var(--spacing-xxl);
+        font-size: 1.1rem;
+        max-width: 600px;
+    }
+    .slide-caption h3 {
+        font-size: 1.4rem;
+    }
+
+    .nav-btn {
+        padding: 12px var(--spacing-sm);
+        font-size: 2rem;
+    }
+    .prev-btn { left: var(--spacing-lg); padding-left: 12px; }
+    .next-btn { right: var(--spacing-lg); padding-right: 12px; }
+
+    /* Footer Section */
+    .footer-section {
+        padding: 40px var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: var(--spacing-xl);
+        margin-bottom: 25px;
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Added horizontal padding */
+    .footer-about,
+    .footer-links,
+    .footer-contact,
+    .footer-newsletter {
+        flex: 1 1 100%;
+        min-width: unset;
+        text-align: center;
+    }
+
+    .footer-about h3::after,
+    .footer-links h3::after,
+    .footer-contact h3::after,
+    .footer-newsletter h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .social-icons {
+        justify-content: center;
+        display: flex;
+    }
+
+    .newsletter-form {
+        max-width: 400px;
+        margin: var(--spacing-lg) auto 0 auto;
+    }
+
+    .footer-about h3,
+    .footer-links h3,
+    .footer-contact h3,
+    .footer-newsletter h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        padding-bottom: 5px;
+    }
+
+    .footer-about p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .social-icons a {
+        font-size: 1.2rem;
+        margin-right: var(--spacing-md);
+    }
+
+    .footer-links ul li {
+        margin-bottom: 6px;
+    }
+
+    .footer-links ul li a {
+        font-size: 0.8rem;
+    }
+
+    .footer-contact p {
+        font-size: 0.8rem;
+        gap: var(--spacing-sm);
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        font-size: 0.8rem;
+        padding: 7px var(--spacing-md);
+    }
+
+    .footer-bottom {
+        padding-top: var(--spacing-lg);
+        font-size: 0.75rem;
+    }
+
+    #scrollTopBtn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    /* Modal Responsive */
+    .modal {
+        padding: var(--spacing-md); /* Less padding on smaller screens */
+    }
+    .modal-content {
+        padding: 25px;
+        border-radius: 8px;
+    }
+    .close-button {
+        font-size: 26px;
+        top: var(--spacing-md);
+        right: var(--spacing-lg);
+    }
+    .modal-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-sm);
+    }
+    .modal-content h3::after {
+        width: 60px;
+        height: 3px;
+    }
+    .modal-content p,
+    .modal-content ul li {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    .modal-close-btn {
+        padding: var(--spacing-sm) 18px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile specific styles (aggressive adjustments) */
+@media (max-width: 768px) {
+    .main-header {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .navbar {
+        min-height: 55px;
+    }
+
+    .brand .logo {
+        height: 30px;
+        margin-right: var(--spacing-xs);
+    }
+
+    .brand .text-group h2 {
+        font-size: 1.1rem;
+    }
+
+    .brand .text-group p {
+        font-size: 0.65rem;
+    }
+
+    .mobile-tools {
+        gap: var(--spacing-md);
+    }
+
+    .language-select {
+        padding: 5px 22px 5px var(--spacing-sm);
+        font-size: 0.8rem;
+        border-radius: var(--spacing-xs);
+    }
+
+    .custom-select-arrow {
+        right: 7px;
+        font-size: 0.65rem;
+    }
+
+    .menu-toggle {
+        width: 25px;
+        height: 16px;
+    }
+
+    .menu-toggle .icon-bar {
+        margin-bottom: 4px;
+    }
+
+    .menu-toggle.active .icon-bar:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle.active .icon-bar:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .nav-controls {
+        width: 90%; /* Increased width for smaller screens */
+        padding-top: 60px;
+        max-width: none; /* Remove max-width constraint */
+    }
+
+    .nav-controls .nav-links-list li a {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 0.95rem;
+    }
+
+    .nav-controls .dropdown-menu li a {
+        padding: 7px var(--spacing-xl);
+        font-size: 0.85rem;
+    }
+
+    /* Contact button in nav */
+    .nav-controls .nav-contact-link {
+        width: calc(100% - 30px);
+        text-align: center;
+        margin: var(--spacing-lg) auto;
+        font-size: 0.9rem;
+        padding: var(--spacing-sm) 12px;
+    }
+
+    /* Banner Slider */
+    .banner-slider {
+        height: 350px; /* Adjust height for mobile */
+    }
+
+    .slide-caption {
+        padding: 12px var(--spacing-xl);
+        font-size: 1rem;
+        max-width: 90%; /* Allow wider caption on mobile */
+    }
+    .slide-caption h3 {
+        font-size: 1.2rem;
+    }
+
+    .nav-btn {
+        padding: var(--spacing-md) 6px;
+        font-size: 1.8rem;
+    }
+    .prev-btn { left: var(--spacing-md); padding-left: var(--spacing-md); }
+    .next-btn { right: var(--spacing-md); padding-right: var(--spacing-md); }
+
+    /* Modal Responsive */
+    .modal-content {
+        padding: 25px;
+        border-radius: 8px;
+    }
+    .close-button {
+        font-size: 26px;
+        top: var(--spacing-md);
+        right: var(--spacing-lg);
+    }
+    .modal-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: var(--spacing-lg);
+        padding-bottom: var(--spacing-sm);
+    }
+    .modal-content h3::after {
+        width: 60px;
+        height: 3px;
+    }
+    .modal-content p,
+    .modal-content ul li {
+        font-size: 0.9rem;
+        margin-bottom: 12px;
+    }
+    .modal-close-btn {
+        padding: var(--spacing-sm) 18px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header {
+        padding: 6px var(--spacing-sm);
+    }
+
+    .navbar {
+        min-height: 50px;
+    }
+
+    .brand .logo {
+        height: 28px;
+        margin-right: 4px;
+    }
+
+    .brand .text-group h2 {
+        font-size: 1rem;
+    }
+
+    .brand .text-group p {
+        font-size: 0.6rem;
+    }
+
+    .mobile-tools {
+        gap: var(--spacing-sm);
+    }
+
+    .language-select {
+        padding: 4px 18px 4px 7px;
+        font-size: 0.75rem;
+        border-radius: 4px;
+    }
+
+    .custom-select-arrow {
+        right: var(--spacing-xs);
+        font-size: 0.6rem;
+    }
+
+    .menu-toggle {
+        width: 22px;
+        height: 14px;
+    }
+
+    .menu-toggle .icon-bar {
+        margin-bottom: 3px;
+    }
+
+    .menu-toggle.active .icon-bar:nth-child(1) {
+        transform: translateY(5px) rotate(45deg);
+    }
+
+    .menu-toggle.active .icon-bar:nth-child(3) {
+        transform: translateY(-5px) rotate(-45deg);
+    }
+
+    .nav-controls {
+        width: 100%;
+        padding-top: 50px;
+    }
+
+    .nav-controls .nav-links-list li a {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 0.85rem;
+    }
+
+    .nav-controls .dropdown-menu li a {
+        padding: 6px var(--spacing-lg);
+        font-size: 0.8rem;
+    }
+
+    /* Contact button in nav */
+    .nav-controls .nav-contact-link {
+        width: calc(100% - 20px);
+        font-size: 0.8rem;
+        padding: 7px var(--spacing-md);
+        margin: var(--spacing-md) auto;
+    }
+
+    /* Banner Slider */
+    .banner-slider {
+        height: 250px; /* Smallest height for very small phones */
+    }
+
+    .slide-caption {
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: 0.9rem;
+    }
+    .slide-caption h3 {
+        font-size: 1rem;
+    }
+
+    .nav-btn {
+        padding: var(--spacing-sm) 4px;
+        font-size: 1.5rem;
+    }
+    .prev-btn { left: var(--spacing-xs); padding-left: var(--spacing-sm); }
+    .next-btn { right: var(--spacing-xs); padding-right: var(--spacing-sm); }
+
+    /* Footer Section */
+    .footer-section {
+        padding: 25px var(--spacing-md) var(--spacing-sm) var(--spacing-md);
+    }
+
+    .footer-container {
+        gap: var(--spacing-md);
+        margin-bottom: var(--spacing-lg);
+        padding: 0 var(--spacing-xs);
+    }
+
+    /* Reduced padding further */
+    .footer-about h3,
+    .footer-links h3,
+    .footer-contact h3,
+    .footer-newsletter h3 {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-md);
+        padding-bottom: 3px;
+    }
+
+    .footer-about p {
+        font-size: 0.75rem;
+    }
+
+    .social-icons a {
+        font-size: 1.1rem;
+        margin-right: var(--spacing-sm);
+    }
+
+    .footer-links ul li {
+        margin-bottom: var(--spacing-xs);
+    }
+
+    .footer-links ul li a {
+        font-size: 0.75rem;
+    }
+
+    .footer-contact p {
+        font-size: 0.75rem;
+        gap: var(--spacing-xs);
+    }
+
+    .newsletter-form input,
+    .newsletter-form button {
+        font-size: 0.7rem;
+        padding: 6px 7px;
+    }
+
+    .footer-bottom {
+        padding-top: var(--spacing-sm);
+        font-size: 0.7rem;
+    }
+
+    #scrollTopBtn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+    }
+
+    /* Modal Responsive */
+    .modal-content {
+        padding: var(--spacing-xl);
+        border-radius: 6px;
+    }
+    .close-button {
+        font-size: 22px;
+        top: var(--spacing-sm);
+        right: 12px;
+    }
+    .modal-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        padding-bottom: 6px;
+    }
+    .modal-content h3::after {
+        width: 50px;
+        height: 2px;
+    }
+    .modal-content p,
+    .modal-content ul li {
+        font-size: 0.85rem;
+        margin-bottom: var(--spacing-md);
+    }
+    .modal-buttons {
+        justify-content: center; /* Center close button on very small screens */
+        margin-top: var(--spacing-xl);
+    }
+    .modal-close-btn {
+        padding: 7px var(--spacing-lg);
+        font-size: 0.85rem;
+    }
+}

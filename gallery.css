@@ -1,0 +1,732 @@
+/* General Body and HTML Reset */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #f0f2f5;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+}
+
+/* Remove outline on focus/active for a cleaner look */
+a:focus,
+button:focus,
+a:active,
+button:active {
+    outline: none;
+}
+
+/* Class to prevent body scrolling when mobile menu or modal is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* --- CSS Variables (Custom Properties) --- */
+:root {
+    --color-bg-light-grey: #f8f8f8;
+    --color-bg-dark-overlay: rgba(0, 0, 0, 0.6);
+    --color-text-white: #ffffff;
+    --color-primary-green: #28a745;
+    --color-dark-blue: #001f3f;
+    --spacing-xxl: 30px;
+    --spacing-xl: 20px;
+    --spacing-l: 15px;
+    --spacing-m: 10px;
+    --spacing-s: 8px;
+    --spacing-xs: 5px;
+}
+
+/* --- Main Navigation Bar --- */
+.main-nav {
+    background-color: var(--color-dark-blue);
+    color: var(--color-text-white);
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 50px;
+    flex-shrink: 0;
+    color: var(--color-text-white);
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default on desktop, shown on mobile via media queries */
+    background: none;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 20px;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-right: 50px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-links li a {
+    color: var(--color-text-white);
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.nav-links li a .fas {
+    margin-right: 8px;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-text-white);
+    transition: width 0.3s ease-out;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #f8f9fa;
+}
+
+.close-menu { /* Used for mobile menu close button */
+    display: none; /* Hidden by default, shown when mobile menu is active */
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 1060;
+    transition: color 0.3s ease, transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.close-menu:hover,
+.close-menu:focus {
+    color: var(--color-dark-blue); /* Changed from primary-green for consistency */
+    transform: rotate(90deg);
+    text-decoration: none;
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('gallery.JPG') no-repeat center center/cover;
+    color: var(--color-text-white);
+    text-align: left;
+    padding: 160px 160px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section::before {
+    content: none; /* This rule seems to explicitly remove a :before pseudo-element, so it's kept. */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-left: 100px;
+    padding-right: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.hero-section h1 {
+    font-size: clamp(36px, 5vw, 48px);
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p { /* This applies to any p tags within the hero-section, which includes the breadcrumb. */
+    font-size: clamp(16px, 2.5vw, 20px);
+    max-width: 800px;
+}
+
+
+/* --- Gallery Container (CSS Grid) --- */
+.gallery-container {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.gallery-container h2 {
+    grid-column: 1 / -1; /* Ensures heading spans all columns */
+    margin-bottom: 30px;
+    font-size: 3em; /* Slightly larger */
+    color: var(--color-dark-blue); /* Consistent with brand color */
+    font-weight: bold; /* Ensure it's bold */
+    text-transform: uppercase; /* Make it uppercase for emphasis */
+    letter-spacing: 2px; /* Add some space between letters */
+    position: relative; /* Needed for the pseudo-element underline */
+    padding-bottom: 15px; /* Space for the underline */
+}
+
+/* Decorative underline for the H2 */
+.gallery-container h2::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Center the underline */
+    bottom: 0;
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    width: 80px; /* Width of the underline */
+    height: 4px; /* Thickness of the underline */
+    background-color: var(--color-primary-green); /* Your brand's green */
+    border-radius: 2px; /* Slightly rounded ends */
+}
+
+/* Styles for Event Information Sections */
+.gallery-section-info {
+    grid-column: 1 / -1; /* This makes it span across all columns of the grid */
+    background-color: #e9ecef; /* A light gray background */
+    color: #495057;
+    padding: 30px 20px;
+    margin: 20px 0; /* Add some vertical spacing */
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gallery-section-info h3 {
+    font-size: 2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #001f3f; /* Dark blue for headings */
+}
+
+.gallery-section-info p {
+    font-size: 1.1em;
+    margin-bottom: 0;
+    color: #6c757d;
+}
+
+
+/* Individual Gallery Item */
+.gallery-item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- Lightbox Styles --- */
+.lightbox {
+    display: none; /* This ensures it's hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.8);
+    justify-content: center; /* These will apply when .active sets display:flex */
+    align-items: center;
+}
+
+.lightbox.active {
+    display: flex; /* This makes it visible and sets its display to flex */
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    display: flex; /* Use flexbox for content to easily place nav buttons */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    display: block;
+    margin: 0 auto 10px auto;
+    object-fit: contain;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1010; /* Ensure close button is above everything */
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.lightbox-caption {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 10px;
+    padding: 0 40px; /* Add padding to not overlap with nav buttons */
+}
+
+/* Navigation Buttons for Lightbox */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 3em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 10px 15px;
+    user-select: none; /* Prevent text selection on double-click */
+    z-index: 1005; /* Above lightbox content, below close button */
+}
+
+.nav-btn:hover {
+    color: #3498db;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* Image counter */
+.lightbox-counter {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #fff;
+    font-size: 1.2em;
+    z-index: 1010;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* When a nav button is disabled (e.g., at first/last image) */
+.nav-btn.hidden {
+    display: none;
+}
+
+
+/* --- Footer Styles (UPDATED) --- */
+.site-footer {
+    background-color: var(--color-dark-blue); /* Dark blue background */
+    color: var(--color-text-white);
+    padding: 50px 0 20px; /* More padding top/bottom */
+    margin-top: auto; /* Pushes footer to bottom of viewport */
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+.site-footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.site-footer .footer-content-wrapper {
+    display: grid;
+    /* Two-column layout for desktop: About Us takes more space */
+    grid-template-columns: 2fr 1fr;
+    gap: 30px; /* Space between columns */
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
+}
+
+.site-footer .footer-section {
+    margin-bottom: 20px; /* Space for stacked sections on smaller screens */
+}
+
+.site-footer .footer-section h3 {
+    font-size: 1.5em; /* Slightly larger heading */
+    margin-bottom: 20px;
+    color: var(--color-primary-green); /* Green headings for emphasis */
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.site-footer .footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--color-text-white); /* White underline */
+    border-radius: 2px;
+}
+
+.site-footer .footer-section p {
+    font-size: 0.95em;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.site-footer .footer-logo {
+    display: inline-block;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--color-text-white);
+    text-decoration: none; /* Ensure no underline on non-link text */
+    margin-top: 15px;
+}
+
+/* Social Icons styling */
+.site-footer .social-icons {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.site-footer .social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px; /* Size of the icon background */
+    height: 45px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background */
+    border-radius: 50%; /* Circular shape */
+    color: var(--color-text-white);
+    font-size: 1.5em; /* Icon size */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none; /* Ensure social icons don't have underlines */
+}
+
+.site-footer .social-icons a:hover {
+    background-color: var(--color-primary-green); /* Green on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+.site-footer .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.site-footer .footer-bottom p {
+    margin: 5px 0;
+}
+
+.site-footer .footer-bottom .fas {
+    color: red; /* Heart icon */
+    margin: 0 5px;
+}
+
+
+/* --- Responsive Adjustments --- */
+
+/* Tablet and smaller desktop (992px) */
+@media (max-width: 992px) {
+    .nav-brand {
+        margin-left: 20px;
+    }
+
+    .nav-links {
+        margin-right: 20px;
+    }
+
+    .hero-content {
+        margin-left: 50px;
+        text-align: left;
+    }
+
+    /* Footer: Adjust to two equal columns for tablet */
+    .site-footer .footer-content-wrapper {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .site-footer .footer-section.about-us {
+        grid-column: span 1; /* Reset about section to normal column span */
+    }
+}
+
+/* Mobile Screens (768px) */
+@media (max-width: 768px) {
+    .main-nav {
+        justify-content: space-between;
+        padding: 10px 10px;
+    }
+
+    .nav-brand {
+        font-size: 20px;
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Show the toggle button */
+        margin-right: none;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hide off-screen */
+        width: 70%;
+        max-width: 300px;
+        height: 100%;
+        background-color: var(--color-dark-blue);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+        padding-top: 60px;
+        margin-right: 0;
+        align-items: flex-start;
+        z-index: 1050;
+    }
+
+    .nav-links.show { /* This class would be added by JavaScript to show the menu */
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin-left: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 15px 25px;
+        font-size: 18px;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.show .close-menu {
+        display: block; /* Show the close button when menu is open */
+    }
+
+    .hero-section {
+        padding: 80px 0;
+        text-align: left;
+    }
+
+    .hero-content {
+        margin-left: 20px;
+        margin-right: 20px;
+        padding: 0;
+    }
+
+    /* Existing gallery responsive rules */
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Remains 200px min for 768px breakpoint */
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .gallery-container h2 {
+        font-size: 2em;
+    }
+
+    .gallery-item img {
+        height: 180px;
+    }
+
+    /* Existing lightbox responsive rules */
+    .lightbox-content {
+        padding: 15px;
+    }
+
+    .close-btn {
+        font-size: 30px;
+        top: 5px;
+        right: 15px;
+    }
+
+    .nav-btn {
+        font-size: 2.2em;
+        padding: 8px 12px;
+    }
+
+    .prev-btn {
+        left: 5px;
+    }
+
+    .next-btn {
+        right: 5px;
+    }
+
+    .lightbox-caption {
+        padding: 0 20px;
+    }
+
+    .lightbox-counter {
+        font-size: 1em;
+        top: 5px;
+        left: 10px;
+    }
+
+    /* Footer: Stack columns on smaller tablets/large mobiles */
+    .site-footer .footer-content-wrapper {
+        grid-template-columns: 1fr; /* Stack all columns */
+        gap: 20px;
+    }
+
+    .site-footer .footer-section {
+        margin-bottom: 0; /* No extra margin when stacked */
+        text-align: center; /* Center content when stacked */
+    }
+
+    .site-footer .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%); /* Center underline */
+    }
+
+    .site-footer .social-icons {
+        justify-content: center; /* Center social icons */
+    }
+}
+
+/* Very Small Mobile Screens (480px) */
+@media (max-width: 480px) {
+    .nav-brand {
+        font-size: 18px;
+    }
+
+    .nav-links {
+        width: 85%;
+        max-width: 250px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    .close-menu {
+        font-size: 24px;
+    }
+
+    .hero-section {
+        padding: 60px 0;
+        text-align: left;
+    }
+
+    .hero-content {
+        padding: 0 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .hero-section h1 {
+        font-size: clamp(20px, 2vw, 36px);
+    }
+
+    .hero-section p {
+        font-size: clamp(15px, 3vw, 18px);
+    }
+
+    /* Note: The .container class is defined but not used in the HTML you provided,
+        however, the padding rule here might affect the layout if a container is implicitly applied or intended. */
+    .container {
+        padding: 0px;
+    }
+
+    /* Gallery responsive rules for 480px - FOUR COLUMNS */
+    .gallery-container {
+        grid-template-columns: repeat(4, 1fr); /* Changed to four columns */
+        padding: 10px;
+        gap: 5px; /* Reduced gap for tighter fit with 4 columns */
+    }
+
+    .gallery-container h2 {
+        font-size: 1.8em;
+    }
+
+    .gallery-item img {
+        height: 100px; /* Reduced height to fit 4 columns better on small screens */
+    }
+
+    /* Ensure event info spans full width even with 4 columns */
+    .gallery-section-info {
+        grid-column: 1 / -1;
+    }
+}
